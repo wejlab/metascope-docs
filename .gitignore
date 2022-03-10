@@ -1,3 +1,6 @@
+## Special
+docs/reference/*.tab
+
 # History files
 .Rhistory
 .Rapp.history
