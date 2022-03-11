@@ -30,13 +30,13 @@ library/.bam files use NCBI accession names for reference names (rnames in
   <a class="nav-link" href="../index.html">Home</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="../articles/rmd/MetaScope_Vignette.html">Tutorial</a>
+  <a class="nav-link" href="../articles/MetaScope_vignette.html">Tutorial</a>
 </li>
 <li class="active nav-item">
-  <a class="nav-link" href="../reference/index.html">Reference</a>
+  <a class="nav-link" href="../reference/index.html">Function Reference</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="../news/index.html">News</a>
+  <a class="nav-link" href="../news/index.html">Package News</a>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -130,7 +130,7 @@ mapped reads. The function itself returns the output .csv file name.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Run metascope id with the aligner option set to subread</span></span>
 <span class="r-in"><span class="fu">metascope_id</span><span class="op">(</span>bam_file <span class="op">=</span> <span class="va">bamPath</span>, aligner <span class="op">=</span> <span class="st">"subread"</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading .bam file: /scratch/3276553.1.linga/Rtmph47wXA/temp_libpath1d6ac7e37a51d/MetaScope/extdata/subread_target.filtered.bam</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading .bam file: /scratch/3276553.1.linga/Rtmpp8sDKo/temp_libpath1c89f2e042019/MetaScope/extdata/subread_target.filtered.bam</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 856 reads aligned to 77 NCBI accessions</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Obtaining taxonomy and genome names</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 6 unique NCBI taxonomy IDs</span>
@@ -169,7 +169,7 @@ mapped reads. The function itself returns the output .csv file name.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Saving 6.67 x 6.67 in image</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Saving 6.67 x 6.67 in image</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Saving 6.67 x 6.67 in image</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Results written to /scratch/3276553.1.linga/Rtmph47wXA/temp_libpath1d6ac7e37a51d/MetaScope/extdata/subread_target.filtered.metascope_id.csv</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Results written to /scratch/3276553.1.linga/Rtmpp8sDKo/temp_libpath1c89f2e042019/MetaScope/extdata/subread_target.filtered.metascope_id.csv</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   TaxonomyID</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1     273036</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2     418127</span>
@@ -197,7 +197,7 @@ mapped reads. The function itself returns the output .csv file name.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Run metascope id with the aligner option set to bowtie</span></span>
 <span class="r-in"><span class="fu">metascope_id</span><span class="op">(</span>bam_file <span class="op">=</span> <span class="va">bamPath</span>, aligner <span class="op">=</span> <span class="st">"bowtie"</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading .bam file: /scratch/3276553.1.linga/Rtmph47wXA/temp_libpath1d6ac7e37a51d/MetaScope/extdata/bowtie_target.filtered.bam</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading .bam file: /scratch/3276553.1.linga/Rtmpp8sDKo/temp_libpath1c89f2e042019/MetaScope/extdata/bowtie_target.filtered.bam</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 955 reads aligned to 120 NCBI accessions</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Obtaining taxonomy and genome names</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 6 unique NCBI taxonomy IDs</span>
@@ -234,7 +234,7 @@ mapped reads. The function itself returns the output .csv file name.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Saving 6.67 x 6.67 in image</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Saving 6.67 x 6.67 in image</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Saving 6.67 x 6.67 in image</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Results written to /scratch/3276553.1.linga/Rtmph47wXA/temp_libpath1d6ac7e37a51d/MetaScope/extdata/bowtie_target.filtered.metascope_id.csv</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Results written to /scratch/3276553.1.linga/Rtmpp8sDKo/temp_libpath1c89f2e042019/MetaScope/extdata/bowtie_target.filtered.metascope_id.csv</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   TaxonomyID                                                             Genome</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1     273036                     Staphylococcus aureus RF122, complete sequence</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3     158878        Staphylococcus aureus subsp. aureus Mu50, complete sequence</span>
@@ -252,7 +252,7 @@ mapped reads. The function itself returns the output .csv file name.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Run metascope id with the aligner option set to other </span></span>
 <span class="r-in"><span class="fu">metascope_id</span><span class="op">(</span>bam_file <span class="op">=</span> <span class="va">bamPath</span>, aligner <span class="op">=</span> <span class="st">"other"</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading .bam file: /scratch/3276553.1.linga/Rtmph47wXA/temp_libpath1d6ac7e37a51d/MetaScope/extdata/subread_target.filtered.bam</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading .bam file: /scratch/3276553.1.linga/Rtmpp8sDKo/temp_libpath1c89f2e042019/MetaScope/extdata/subread_target.filtered.bam</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 856 reads aligned to 77 NCBI accessions</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Obtaining taxonomy and genome names</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 6 unique NCBI taxonomy IDs</span>
@@ -291,7 +291,7 @@ mapped reads. The function itself returns the output .csv file name.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Saving 6.67 x 6.67 in image</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Saving 6.67 x 6.67 in image</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Saving 6.67 x 6.67 in image</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Results written to /scratch/3276553.1.linga/Rtmph47wXA/temp_libpath1d6ac7e37a51d/MetaScope/extdata/subread_target.filtered.metascope_id.csv</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Results written to /scratch/3276553.1.linga/Rtmpp8sDKo/temp_libpath1c89f2e042019/MetaScope/extdata/subread_target.filtered.metascope_id.csv</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   TaxonomyID</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1     273036</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2     418127</span>
@@ -318,7 +318,7 @@ mapped reads. The function itself returns the output .csv file name.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by W. Evan Johnson, Aubrey R. Odom-Mabey, Rahul Varki.</p>
+  <p></p><p>Site created by Aubrey Odom-Mabey.</p>
 </div>
 
 <div class="pkgdown-footer-right">

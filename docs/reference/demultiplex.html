@@ -34,13 +34,13 @@ the indexed barcode and writes all the reads from that barcode to separate
   <a class="nav-link" href="../index.html">Home</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="../articles/rmd/MetaScope_Vignette.html">Tutorial</a>
+  <a class="nav-link" href="../articles/MetaScope_vignette.html">Tutorial</a>
 </li>
 <li class="active nav-item">
-  <a class="nav-link" href="../reference/index.html">Reference</a>
+  <a class="nav-link" href="../reference/index.html">Function Reference</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="../news/index.html">News</a>
+  <a class="nav-link" href="../news/index.html">Package News</a>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -138,11 +138,11 @@ e.g. './demultiplex_fastq/SampleName1_GGAATTATCGGT.fastq.gz'</p>
 <span class="r-in"><span class="co">## Get barcode, index, and read data locations</span></span>
 <span class="r-in"><span class="va">demult</span> <span class="op">&lt;-</span> <span class="fu">demultiplex</span><span class="op">(</span><span class="va">barcodePath</span>, <span class="va">indexPath</span>, <span class="va">readPath</span>, rcBarcodes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span class="r-in">                      hammingDist <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading Sample Names and Barcodes from: /scratch/3276553.1.linga/Rtmph47wXA/temp_libpath1d6ac7e37a51d/MetaScope/extdata/barcodes.txt</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading Sample Names and Barcodes from: /scratch/3276553.1.linga/Rtmpp8sDKo/temp_libpath1c89f2e042019/MetaScope/extdata/barcodes.txt</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found information for 6 samples/barcodes</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading Index File: /scratch/3276553.1.linga/Rtmph47wXA/temp_libpath1d6ac7e37a51d/MetaScope/extdata/virus_example_index.fastq</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading Index File: /scratch/3276553.1.linga/Rtmpp8sDKo/temp_libpath1c89f2e042019/MetaScope/extdata/virus_example_index.fastq</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found indexes for 150 reads</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading Sequence File: /scratch/3276553.1.linga/Rtmph47wXA/temp_libpath1d6ac7e37a51d/MetaScope/extdata/virus_example.fastq</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading Sequence File: /scratch/3276553.1.linga/Rtmpp8sDKo/temp_libpath1c89f2e042019/MetaScope/extdata/virus_example.fastq</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 150 reads</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Finding reads for barcode: TCCACGT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 25 reads, writing reads to: ./demultiplex_fastq/CDV_TCCACGT.fastq.gz</span>
@@ -174,7 +174,7 @@ e.g. './demultiplex_fastq/SampleName1_GGAATTATCGGT.fastq.gz'</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by W. Evan Johnson, Aubrey R. Odom-Mabey, Rahul Varki.</p>
+  <p></p><p>Site created by Aubrey Odom-Mabey.</p>
 </div>
 
 <div class="pkgdown-footer-right">

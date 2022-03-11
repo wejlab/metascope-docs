@@ -43,13 +43,13 @@
   <a class="nav-link" href="index.html">Home</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="articles/rmd/MetaScope_Vignette.html">Tutorial</a>
+  <a class="nav-link" href="articles/MetaScope_vignette.html">Tutorial</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="reference/index.html">Reference</a>
+  <a class="nav-link" href="reference/index.html">Function Reference</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="news/index.html">News</a>
+  <a class="nav-link" href="news/index.html">Package News</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -70,19 +70,14 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><div class="section level2">
-<h2 id="metascope">MetaScope<a class="anchor" aria-label="anchor" href="#metascope"></a>
-</h2>
-</div>
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="metascope">MetaScope<a class="anchor" aria-label="anchor" href="#metascope"></a>
+</h1></div>
 <div class="section level2">
-<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+<h2 id="what-is-metascope">What is MetaScope?<a class="anchor" aria-label="anchor" href="#what-is-metascope"></a>
 </h2>
-<p>Please check our website at <a href="https://compbiomed.github.io/MetaScope-docs/" class="external-link uri">https://compbiomed.github.io/MetaScope-docs/</a>.</p>
-</div>
-<div class="section level2">
-<h2 id="what-is-the-tbsignatureprofiler">What is the TBSignatureProfiler?<a class="anchor" aria-label="anchor" href="#what-is-the-tbsignatureprofiler"></a>
-</h2>
-<p>MetaScope is an R-based approach for preprocessing and aligning 16S, metagenomic, and metatranscriptomic data. It is essentially PathoScope version 3.0.</p>
+<p>MetaScope is a complete R-based 16S, metagenomic, and metatranscriptomic profiling package that can accurately identify the composition of microbes at a strain-level resolution within a sample. MetaScope can be considered as an updated and expanded R translation of <a href="https://microbiomejournal.biomedcentral.com/articles/10.1186/2049-2618-2-33" class="external-link">PathoScope 2.0</a>, a Python-based metagenomic profiling package also created by our lab.</p>
+<p>A few improvements made in MetaScope over PathoScope include using the BAM file format instead of the SAM file format for significantly less disk space usage, removing all dependencies to NCBI’s now defunct GI sequence annotations, and properly filtering reads that align to filter reference genomes. Functions to analyze host microbiome data are also planned to be added in future updates to the package.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -95,7 +90,12 @@
   <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"compbiomed/MetaScope"</span><span class="op">)</span></code></pre>
 </div>
-
+<div class="section level2">
+<h2 id="tutorial">Tutorial<a class="anchor" aria-label="anchor" href="#tutorial"></a>
+</h2>
+<p>Check out a thorough tutorial on proper usage of our package <a href="https://compbiomed.github.io/metascope-docs/articles/MetaScope_vignette.html">here</a>.</p>
+</div>
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
@@ -128,9 +128,9 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>W. Evan Johnson <br><small class="roles"> Author, maintainer </small>  </li>
-<li>Aubrey R. Odom-Mabey <br><small class="roles"> Author </small>  </li>
+<li>Aubrey Odom-Mabey <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7113-7598" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Rahul Varki <br><small class="roles"> Author </small>  </li>
+<li>W. Evan Johnson <br><small class="roles"> Author </small>  </li>
 </ul>
 </div>
 
@@ -142,7 +142,7 @@
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by W. Evan Johnson, Aubrey R. Odom-Mabey, Rahul Varki.</p>
+<p>Site created by Aubrey Odom-Mabey.</p>
 </div>
 
 <div class="pkgdown-footer-right">

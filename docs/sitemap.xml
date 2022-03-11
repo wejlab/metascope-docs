@@ -1,102 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/404.html</loc>
   </url>
   <url>
-    <loc>/CODE_OF_CONDUCT.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>/articles/MetaScope_vignette.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/articles/MetaScope_vignette.html</loc>
   </url>
   <url>
-    <loc>/articles/index.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/articles/index.html</loc>
   </url>
   <url>
-    <loc>/articles/rmd/Metascope_vignette.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/articles/rmd/oldMetascope_vignette.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/index.html</loc>
   </url>
   <url>
-    <loc>/news/index.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/align_details.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/align_details.html</loc>
   </url>
   <url>
-    <loc>/reference/align_target.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/align_target.html</loc>
   </url>
   <url>
-    <loc>/reference/align_target_bowtie.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/align_target_bowtie.html</loc>
   </url>
   <url>
-    <loc>/reference/bam_reheader_R.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/bam_reheader_R.html</loc>
   </url>
   <url>
-    <loc>/reference/combined_header.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/combined_header.html</loc>
   </url>
   <url>
-    <loc>/reference/convert_animalcules.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/convert_animalcules.html</loc>
   </url>
   <url>
-    <loc>/reference/count_matches.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/count_matches.html</loc>
   </url>
   <url>
-    <loc>/reference/demultiplex.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/demultiplex.html</loc>
   </url>
   <url>
-    <loc>/reference/download_refseq.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/download_refseq.html</loc>
   </url>
   <url>
-    <loc>/reference/extractReads.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/extractReads.html</loc>
   </url>
   <url>
-    <loc>/reference/filter_host.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/filter_host.html</loc>
   </url>
   <url>
-    <loc>/reference/filter_host_bowtie.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/filter_host_bowtie.html</loc>
   </url>
   <url>
-    <loc>/reference/filter_unmapped_reads.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/filter_unmapped_reads.html</loc>
   </url>
   <url>
-    <loc>/reference/generate_taxonomy_table.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/generate_taxonomy_table.html</loc>
   </url>
   <url>
-    <loc>/reference/get_children.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/get_children.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/locations.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/locations.html</loc>
   </url>
   <url>
-    <loc>/reference/merge_bam_files.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/merge_bam_files.html</loc>
   </url>
   <url>
-    <loc>/reference/metascope_id.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/metascope_id.html</loc>
   </url>
   <url>
-    <loc>/reference/mk_bowtie_index.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/mk_bowtie_index.html</loc>
   </url>
   <url>
-    <loc>/reference/mk_interim_fastq.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/mk_interim_fastq.html</loc>
   </url>
   <url>
-    <loc>/reference/mk_subread_index.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/mk_subread_index.html</loc>
   </url>
   <url>
-    <loc>/reference/mk_table.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/mk_table.html</loc>
   </url>
   <url>
-    <loc>/reference/remove_matches.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/remove_matches.html</loc>
   </url>
   <url>
-    <loc>/reference/taxonomy_table.html</loc>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/taxonomy_table.html</loc>
   </url>
 </urlset>

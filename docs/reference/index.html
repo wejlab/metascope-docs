@@ -22,13 +22,13 @@
   <a class="nav-link" href="../index.html">Home</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="../articles/rmd/MetaScope_Vignette.html">Tutorial</a>
+  <a class="nav-link" href="../articles/MetaScope_vignette.html">Tutorial</a>
 </li>
 <li class="active nav-item">
-  <a class="nav-link" href="../reference/index.html">Reference</a>
+  <a class="nav-link" href="../reference/index.html">Function Reference</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="../news/index.html">News</a>
+  <a class="nav-link" href="../news/index.html">Package News</a>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -50,9 +50,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="reference-genome-library">Reference Genome Library<a class="anchor" aria-label="anchor" href="#reference-genome-library"></a></h2>
       
-      <p class="section-desc"></p><p>Functions for usage in preprocessing</p>
+      <p class="section-desc"></p><p>Start here to download reference genomes for processing.</p>
 
       
     </div><div id="" class="section level2">
@@ -62,16 +62,63 @@
 
       <dl><dt>
           
-          <code><a href="filter_host_bowtie.html">filter_host_bowtie()</a></code> 
+          <code><a href="taxonomy_table.html">taxonomy_table</a></code> 
         </dt>
-        <dd>Align reads against one or more filter libraries and subsequently
-remove mapped reads</dd>
+        <dd>Taxonomy table</dd>
       </dl><dl><dt>
           
-          <code><a href="align_details.html">align_details</a></code> 
+          <code><a href="download_refseq.html">download_refseq()</a></code> 
         </dt>
-        <dd>A universal parameter settings object for Rsubread alignment</dd>
+        <dd>Download RefSeq genome libraries</dd>
+      </dl></div><div class="section level2">
+      <h2 id="demultiplex">Demultiplex<a class="anchor" aria-label="anchor" href="#demultiplex"></a></h2>
+      
+      <p class="section-desc"></p><p>Preprocessing for 16S data.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="demultiplex.html">demultiplex()</a></code> 
+        </dt>
+        <dd>Demultiplexing sequencing reads</dd>
+      </dl></div><div class="section level2">
+      <h2 id="index-creation">Index Creation<a class="anchor" aria-label="anchor" href="#index-creation"></a></h2>
+      
+      <p class="section-desc"></p><p>Create compatible indexes from downloaded reference genomes.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="mk_bowtie_index.html">mk_bowtie_index()</a></code> 
+        </dt>
+        <dd>Make a Bowtie2 index</dd>
       </dl><dl><dt>
+          
+          <code><a href="mk_subread_index.html">mk_subread_index()</a></code> 
+        </dt>
+        <dd>Make a Subread index</dd>
+      </dl></div><div class="section level2">
+      <h2 id="alignment-with-reference-libraries">Alignment with Reference Libraries<a class="anchor" aria-label="anchor" href="#alignment-with-reference-libraries"></a></h2>
+      
+      <p class="section-desc"></p><p>Mapping sequencing reads to the target &amp; filter libraries.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="align_target.html">align_target()</a></code> 
         </dt>
@@ -83,90 +130,69 @@ remove mapped reads</dd>
         <dd>Align microbiome reads to set of indexed Bowtie2 libraries</dd>
       </dl><dl><dt>
           
-          <code><a href="bam_reheader_R.html">bam_reheader_R()</a></code> 
+          <code><a href="align_details.html">align_details</a></code> 
         </dt>
-        <dd>Replace the header from a .bam file</dd>
+        <dd>A universal parameter settings object for Rsubread alignment</dd>
       </dl><dl><dt>
           
-          <code><a href="combined_header.html">combined_header()</a></code> 
+          <code><a href="filter_host_bowtie.html">filter_host_bowtie()</a></code> 
         </dt>
-        <dd>Create a combined .bam header</dd>
-      </dl><dl><dt>
-          
-          <code><a href="convert_animalcules.html">convert_animalcules()</a></code> 
-        </dt>
-        <dd>Create a multi-assay experiment from MetaScope output for usage with animalcules</dd>
-      </dl><dl><dt>
-          
-          <code><a href="count_matches.html">count_matches()</a></code> 
-        </dt>
-        <dd>Count the number of base lengths in a CIGAR string for a given operation</dd>
-      </dl><dl><dt>
-          
-          <code><a href="demultiplex.html">demultiplex()</a></code> 
-        </dt>
-        <dd>Demultiplexing sequencing reads</dd>
-      </dl><dl><dt>
-          
-          <code><a href="download_refseq.html">download_refseq()</a></code> 
-        </dt>
-        <dd>Download RefSeq genome libraries</dd>
-      </dl><dl><dt>
-          
-          <code><a href="extractReads.html">extractReads()</a></code> 
-        </dt>
-        <dd>Helper function for demultiplexing</dd>
+        <dd>Align reads against one or more filter libraries and subsequently
+remove mapped reads</dd>
       </dl><dl><dt>
           
           <code><a href="filter_host.html">filter_host()</a></code> 
         </dt>
         <dd>Align reads against one or more filter libraries and subsequently
 remove mapped reads</dd>
-      </dl><dl><dt>
-          
-          <code><a href="filter_unmapped_reads.html">filter_unmapped_reads()</a></code> 
-        </dt>
-        <dd>Filter unmapped reads</dd>
-      </dl><dl><dt>
-          
-          <code><a href="generate_taxonomy_table.html">generate_taxonomy_table()</a></code> 
-        </dt>
-        <dd>Generate the taxonomy table</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_children.html">get_children()</a></code> 
-        </dt>
-        <dd>Get child nodes from NCBI taxonomy</dd>
-      </dl><dl><dt>
-          
-          <code><a href="locations.html">locations()</a></code> 
-        </dt>
-        <dd>Helper Function for MetaScope ID</dd>
-      </dl><dl><dt>
-          
-          <code><a href="merge_bam_files.html">merge_bam_files()</a></code> 
-        </dt>
-        <dd>Merge multiple .bam files</dd>
-      </dl><dl><dt>
+      </dl></div><div class="section level2">
+      <h2 id="genome-identification">Genome Identification<a class="anchor" aria-label="anchor" href="#genome-identification"></a></h2>
+      
+      <p class="section-desc"></p><p>Identify which genomes are most likely to be represented in the sample.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="metascope_id.html">metascope_id()</a></code> 
         </dt>
         <dd>MetaScope ID</dd>
-      </dl><dl><dt>
+      </dl></div><div class="section level2">
+      <h2 id="downstream-analysis-with-animalcules">Downstream Analysis with animalcules<a class="anchor" aria-label="anchor" href="#downstream-analysis-with-animalcules"></a></h2>
+      
+      <p class="section-desc"></p><p>Convert MetaScope output to be compatible with the animalcules R package.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
-          <code><a href="mk_bowtie_index.html">mk_bowtie_index()</a></code> 
+          <code><a href="convert_animalcules.html">convert_animalcules()</a></code> 
         </dt>
-        <dd>Make a Bowtie2 index</dd>
-      </dl><dl><dt>
+        <dd>Create a multi-assay experiment from MetaScope output for usage with animalcules</dd>
+      </dl></div><div class="section level2">
+      <h2 id="helper-functions">Helper Functions<a class="anchor" aria-label="anchor" href="#helper-functions"></a></h2>
+      
+      <p class="section-desc"></p><p>These functions were developed to aid in carrying out other primary functions.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
-          <code><a href="mk_interim_fastq.html">mk_interim_fastq()</a></code> 
+          <code><a href="remove_matches.html">remove_matches()</a></code> 
         </dt>
-        <dd>Helper function for filter_host_bowtie to write interim fastq file</dd>
-      </dl><dl><dt>
-          
-          <code><a href="mk_subread_index.html">mk_subread_index()</a></code> 
-        </dt>
-        <dd>Make a Subread index</dd>
+        <dd>Helper function to remove reads matched to filter libraries</dd>
       </dl><dl><dt>
           
           <code><a href="mk_table.html">mk_table()</a></code> 
@@ -174,20 +200,61 @@ remove mapped reads</dd>
         <dd>Helper function to create a taxonomy table</dd>
       </dl><dl><dt>
           
-          <code><a href="remove_matches.html">remove_matches()</a></code> 
+          <code><a href="combined_header.html">combined_header()</a></code> 
         </dt>
-        <dd>Helper function to remove reads matched to filter libraries</dd>
+        <dd>Create a combined .bam header</dd>
       </dl><dl><dt>
           
-          <code><a href="taxonomy_table.html">taxonomy_table</a></code> 
+          <code><a href="bam_reheader_R.html">bam_reheader_R()</a></code> 
         </dt>
-        <dd>Taxonomy table</dd>
+        <dd>Replace the header from a .bam file</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_children.html">get_children()</a></code> 
+        </dt>
+        <dd>Get child nodes from NCBI taxonomy</dd>
+      </dl><dl><dt>
+          
+          <code><a href="merge_bam_files.html">merge_bam_files()</a></code> 
+        </dt>
+        <dd>Merge multiple .bam files</dd>
+      </dl><dl><dt>
+          
+          <code><a href="count_matches.html">count_matches()</a></code> 
+        </dt>
+        <dd>Count the number of base lengths in a CIGAR string for a given operation</dd>
+      </dl><dl><dt>
+          
+          <code><a href="mk_interim_fastq.html">mk_interim_fastq()</a></code> 
+        </dt>
+        <dd>Helper function for filter_host_bowtie to write interim fastq file</dd>
+      </dl><dl><dt>
+          
+          <code><a href="extractReads.html">extractReads()</a></code> 
+        </dt>
+        <dd>Helper function for demultiplexing</dd>
+      </dl><dl><dt>
+          
+          <code><a href="generate_taxonomy_table.html">generate_taxonomy_table()</a></code> 
+        </dt>
+        <dd>Generate the taxonomy table</dd>
+      </dl><dl><dt>
+          
+          <code><a href="locations.html">locations()</a></code> 
+        </dt>
+        <dd>Helper Function for MetaScope ID</dd>
+      </dl><dl><dt>
+          
+          <code><a href="filter_unmapped_reads.html">filter_unmapped_reads()</a></code> 
+        </dt>
+        <dd>Filter unmapped reads</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by W. Evan Johnson, Aubrey R. Odom-Mabey, Rahul Varki.</p>
+  <p></p><p>Site created by Aubrey Odom-Mabey.</p>
 </div>
 
 <div class="pkgdown-footer-right">
