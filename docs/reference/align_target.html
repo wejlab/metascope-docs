@@ -155,83 +155,12 @@ user's working directory. The function also outputs the new .bam filename.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Mycoplasma genitalium G37 is a strain under the Bacteria Superkingdom</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading the refseq table for bacteria</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Creating table of relevant taxa</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading 2 Mycoplasma genitalium G37 genome(s) from NCBI</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> DONE! Downloaded 2 genomes to /scratch/141165.1.ood/RtmpwygBTw/file7c3324afa3a5//scratch/141165.1.ood/RtmpwygBTw/file7c3324afa3a5/Mycoplasma_genitalium_G37.fasta.gz</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>URL 'https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/assembly_summary.txt': Timeout of 60 seconds was reached</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in scan(file = file, what = what, sep = sep, quote = quote, dec = dec,     nmax = nrows, skip = 0, na.strings = na.strings, quiet = TRUE,     fill = fill, strip.white = strip.white, blank.lines.skip = blank.lines.skip,     multi.line = FALSE, comment.char = comment.char, allowEscapes = allowEscapes,     flush = flush, encoding = encoding, skipNul = skipNul):</span> cannot read from connection</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Create subread index</span></span></span>
 <span class="r-in"><span><span class="va">ind_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="mk_subread_index.html">mk_subread_index</a></span><span class="op">(</span><span class="va">all_ref</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Library size is 0 GBs. Building the Rsubread index</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         ==========     _____ _    _ ____  _____  ______          _____  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             ====      \___ \| |  | |  _ &lt;|  _  /|  __|   / /\ \ | |  | |</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        Rsubread 2.10.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> //================================= setting ==================================\\</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                Index name : Mycoplasma_genitalium_G37                      ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||               Index space : base space                                     ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||               Index split : no-split                                       ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||          Repeat threshold : 100 repeats                                    ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||              Gapped index : no                                             ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||       Free / total memory : 200.5GB / 251.7GB                              ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||               Input files : 1 file in total                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                             o Mycoplasma_genitalium_G37.fasta.gz           ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> //================================= Running ==================================\\</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || Check the integrity of provided reference sequences ...                    ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || No format issues were found                                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || Scan uninformative subreads in reference sequences ...                     ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || Estimate the index size...                                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=491.0k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=914.5k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=1284.4k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=1594.4k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=1881.4k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=2450.5k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=2703.6k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=2944.2k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=3156.9k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=3337.6k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || 3.0 GB of memory is needed for index building.                             ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || Build the index...                                                         ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=49.5k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=97.5k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=144.4k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=190.0k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=234.3k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=321.4k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=363.0k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=403.8k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=443.5k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=482.3k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || Save current index block...                                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 0.0% finished ]                                                         ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 10.0% finished ]                                                        ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 20.0% finished ]                                                        ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 30.0% finished ]                                                        ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 40.0% finished ]                                                        ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 50.0% finished ]                                                        ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 60.0% finished ]                                                        ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 70.0% finished ]                                                        ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 80.0% finished ]                                                        ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 90.0% finished ]                                                        ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 100.0% finished ]                                                       ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Total running time: 0.2 minutes.                      ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||Index /scratch/141165.1.ood/RtmpwygBTw/file7c3324afa3a5/Mycoplasma_gen ... ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in file.info(ref_lib):</span> object 'all_ref' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Get path to example reads</span></span></span>
 <span class="r-in"><span><span class="va">readPath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"reads.fastq"</span>,</span></span>
@@ -282,7 +211,7 @@ user's working directory. The function also outputs the new .bam filename.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> //================ Running (28-Oct-2022 16:42:15, pid=31795) =================\\</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> //================ Running (01-Nov-2022 12:00:34, pid=15343) =================\\</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Check the input reads.                                                     ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || The input file contains base space reads.                                  ||</span>
@@ -291,34 +220,9 @@ user's working directory. The function also outputs the new .bam filename.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || The range of Phred scores observed in the data is [-14,-14]                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Create the output BAM file.                                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Check the index.                                                           ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || Init the voting space.                                                     ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || Global environment is initialised.                                         ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || Load the 1-th index block...                                               ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || The index block has been loaded.                                           ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> || Start read mapping in chunk.                                               ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                           Completed successfully.                          ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> \\====================================    ====================================//</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Unable top open index '/scratch/141827.1.ood/RtmpAAuKHE/file3bef7bf7f514/Mycoplasma_genitalium_G37'. Please make sure that the correct prefix is specified and you have the permission to read these files. For example, if there are files '/opt/my_index.reads', '/opt/my_index.files' and etc, the index prefix should be specified as '/opt/my_index' without any suffix. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> //================================   Summary =================================\\</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                 Total reads : 1,500                                        ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Mapped : 3 (0.2%)                                     ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||             Uniquely mapped : 0                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||               Multi-mapping : 3                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                    Unmapped : 1,497                                        ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Indels : 0                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                Running time : 1.0 minutes                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Filtering unmapped reads</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Library alignment complete</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> DONE! Alignments written to /scratch/141165.1.ood/RtmpwygBTw/file7c3324afa3a5/reads.bam</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .stop_quietly():</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Remove temporary folder</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">target_ref_temp</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>

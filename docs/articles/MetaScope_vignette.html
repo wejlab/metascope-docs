@@ -93,7 +93,7 @@ of Medicine, Boston,
 MA<br><a class="author_email" href="mailto:#"></a><a href="mailto:wej@bu.edu" class="email">wej@bu.edu</a>
       </address>
                   
-            <h4 data-toc-skip class="date">October 28, 2022</h4>
+            <h4 data-toc-skip class="date">November 1, 2022</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/compbiomed/MetaScope/blob/HEAD/vignettes/MetaScope_vignette.Rmd" class="external-link"><code>vignettes/MetaScope_vignette.Rmd</code></a></small>
       <div class="d-none name"><code>MetaScope_vignette.Rmd</code></div>
@@ -233,12 +233,12 @@ These genomes together will act as our target genome library.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">all_species</span>, <span class="va">download_refseq</span>, </span>
 <span>       reference <span class="op">=</span> <span class="cn">FALSE</span>, representative <span class="op">=</span> <span class="cn">FALSE</span>, compress <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>       out_dir <span class="op">=</span> <span class="va">target_ref_temp</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##                                                                           Staphylococcus aureus RF122 </span></span>
-<span><span class="co">##               "/scratch/141165.1.ood/RtmpKnXdpj/file48c462bb512/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
-<span><span class="co">##                                                             Staphylococcus aureus subsp. aureus ST398 </span></span>
-<span><span class="co">## "/scratch/141165.1.ood/RtmpKnXdpj/file48c462bb512/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz" </span></span>
-<span><span class="co">##                                                               Staphylococcus aureus subsp. aureus Mu3 </span></span>
-<span><span class="co">##   "/scratch/141165.1.ood/RtmpKnXdpj/file48c462bb512/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz"</span></span></code></pre>
+<pre><code><span><span class="co">##                                                                            Staphylococcus aureus RF122 </span></span>
+<span><span class="co">##               "/scratch/141827.1.ood/Rtmp3tAP73/file421d7fa9b706/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
+<span><span class="co">##                                                              Staphylococcus aureus subsp. aureus ST398 </span></span>
+<span><span class="co">## "/scratch/141827.1.ood/Rtmp3tAP73/file421d7fa9b706/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz" </span></span>
+<span><span class="co">##                                                                Staphylococcus aureus subsp. aureus Mu3 </span></span>
+<span><span class="co">##   "/scratch/141827.1.ood/Rtmp3tAP73/file421d7fa9b706/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz"</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="downloading-filter-genomes">Downloading filter genomes<a class="anchor" aria-label="anchor" href="#downloading-filter-genomes"></a>
@@ -255,7 +255,7 @@ library.</p>
 <span>  taxon <span class="op">=</span> <span class="st">"Staphylococcus epidermidis RP62A"</span>,</span>
 <span>  representative <span class="op">=</span> <span class="cn">FALSE</span>, reference <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  compress <span class="op">=</span> <span class="cn">TRUE</span>, out_dir <span class="op">=</span> <span class="va">filter_ref_temp</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "/scratch/141165.1.ood/RtmpKnXdpj/file48c44105866/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/141827.1.ood/Rtmp3tAP73/file421d7b3716a1/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -363,7 +363,7 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span></code></pre>
 <pre><code><span><span class="co">## Successfully built the Bowtie2 indexes</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/141165.1.ood/RtmpKnXdpj/file48c61b6e22b"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/141827.1.ood/Rtmp3tAP73/file421d2f977a00"</span></span></code></pre>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create filter index</span></span>
 <span><span class="fu"><a href="../reference/mk_bowtie_index.html">mk_bowtie_index</a></span><span class="op">(</span></span>
@@ -374,7 +374,7 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span>
 <span><span class="co">## Successfully built the Bowtie2 indexes</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/141165.1.ood/RtmpKnXdpj/file48c61b6e22b"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/141827.1.ood/Rtmp3tAP73/file421d2f977a00"</span></span></code></pre>
 <p>Following index creation, we will use the Bowtie2 aligner to map the
 reads to the target genomes with the <code><a href="../reference/align_target_bowtie.html">align_target_bowtie()</a></code>
 function (Rsubread equivalent: <code><a href="../reference/align_target.html">align_target()</a></code>). The
@@ -420,7 +420,7 @@ reference genomes using the Bowtie 2 indexes that we just built.</p>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span></code></pre>
 <pre><code><span><span class="co">## Filtering unmapped reads</span></span></code></pre>
 <pre><code><span><span class="co">## Library alignment complete</span></span></code></pre>
-<pre><code><span><span class="co">## DONE! Alignments written to /scratch/141165.1.ood/RtmpKnXdpj/file48c7ae82a72/bowtie_target.bam</span></span></code></pre>
+<pre><code><span><span class="co">## DONE! Alignments written to /scratch/141827.1.ood/Rtmp3tAP73/file421d16e2ccd8/bowtie_target.bam</span></span></code></pre>
 <p>The last step in the mapping workflow is to filter the output BAM
 file according to the reference genome for the filter/host species.
 Although we have already filtered out any unmapped reads, which may
@@ -446,18 +446,18 @@ downstream for further analysis.</p>
 <span>    overwrite <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    threads <span class="op">=</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Writing Intermediate FASTQ file to /scratch/141165.1.ood/RtmpKnXdpj/file48c7ae82a72/intermediate.fastq.gz</span></span></code></pre>
+<pre><code><span><span class="co">## Writing Intermediate FASTQ file to /scratch/141827.1.ood/Rtmp3tAP73/file421d16e2ccd8/intermediate.fastq.gz</span></span></code></pre>
 <pre><code>## 
   |                                                                            
   |                                                                      |   0%
   |                                                                            
   |======================================================================| 100%</code></pre>
-<pre><code><span><span class="co">## Intermediate FASTQ file written to/scratch/141165.1.ood/RtmpKnXdpj/file48c7ae82a72/intermediate.fastq.gz</span></span></code></pre>
+<pre><code><span><span class="co">## Intermediate FASTQ file written to/scratch/141827.1.ood/Rtmp3tAP73/file421d16e2ccd8/intermediate.fastq.gz</span></span></code></pre>
 <pre><code><span><span class="co">## Attempting to perform Bowtie2 alignment on filter index</span></span></code></pre>
 <pre><code><span><span class="co">## [1] "Samtools found on system. Using samtools to create bam file"</span></span></code></pre>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span></code></pre>
 <pre><code><span><span class="co">## Removing reads mapped to host indices</span></span></code></pre>
-<pre><code><span><span class="co">## DONE! Alignments written to /scratch/141165.1.ood/RtmpKnXdpj/file48c7ae82a72/bowtie_target.filtered.bam</span></span></code></pre>
+<pre><code><span><span class="co">## DONE! Alignments written to /scratch/141827.1.ood/Rtmp3tAP73/file421d16e2ccd8/bowtie_target.filtered.bam</span></span></code></pre>
 <p>Prior to the last step in the analysis, we will look at the primary
 alignments of the mapped reads in the filtered BAM file that we just
 created using the <code><a href="../reference/filter_host_bowtie.html">filter_host_bowtie()</a></code> function. According

@@ -78,8 +78,8 @@ indexes, with _1, _2, etc at the end of the ref_lib basename.</p>
 
 <dt>split</dt>
 <dd><p>The maximum allowed size of the genome file (in GB). If the
-ref_lib file is larger than this, the function will split the library into
-multiple parts.</p></dd>
+<code>ref_lib</code> file is larger than this, the function will split the
+library into multiple parts.</p></dd>
 
 
 <dt>mem</dt>
@@ -92,8 +92,9 @@ generation process (used by the Rsubread::buildindex function).</p></dd>
     
 
 <p>Creates one or more Subread indexes for the supplied reference .fasta
-  file. If multiple indexes are created, the libraries will be named the
-  ref_lib basename plus _1, _2, etc. The function returns the names of the
+  file. If multiple indexes are created, the libraries will be named the</p>
+<p></p>
+<p><code>ref_lib</code> basename + "_1", "_2", etc. The function returns the names of the
   folders holding these files.</p>
     </div>
 
@@ -120,7 +121,7 @@ generation process (used by the Rsubread::buildindex function).</p></dd>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading the refseq table for viral</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Creating table of relevant taxa</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading 3 Duck circovirus genome(s) from NCBI</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> DONE! Downloaded 3 genomes to /scratch/141165.1.ood/RtmpwygBTw/file7c336bcd3691//scratch/141165.1.ood/RtmpwygBTw/file7c336bcd3691/Duck_circovirus.fasta.gz</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> DONE! Downloaded 3 genomes to /scratch/141827.1.ood/RtmpAAuKHE/file3bef21ac9b86//scratch/141827.1.ood/RtmpAAuKHE/file3bef21ac9b86/Duck_circovirus.fasta.gz</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Make subread index of reference library</span></span></span>
 <span class="r-in"><span><span class="fu">mk_subread_index</span><span class="op">(</span><span class="va">out_fasta</span><span class="op">)</span></span></span>
@@ -142,7 +143,7 @@ generation process (used by the Rsubread::buildindex function).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||          Repeat threshold : 100 repeats                                    ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||              Gapped index : no                                             ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||       Free / total memory : 199.0GB / 251.7GB                              ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||       Free / total memory : 224.9GB / 251.7GB                              ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||               Input files : 1 file in total                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                             o Duck_circovirus.fasta.gz                     ||</span>
@@ -155,16 +156,16 @@ generation process (used by the Rsubread::buildindex function).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || No format issues were found                                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Scan uninformative subreads in reference sequences ...                     ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Estimate the index size...                                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=6.9k bps/s                                   ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=13.7k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=34.3k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=54.8k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=7.3k bps/s                                   ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=14.7k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=36.6k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=58.4k bps/s                                  ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || 3.0 GB of memory is needed for index building.                             ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Build the index...                                                         ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=0.6k bps/s                                   ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=1.1k bps/s                                   ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=2.9k bps/s                                   ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=4.6k bps/s                                   ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=0.7k bps/s                                   ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=1.5k bps/s                                   ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=3.7k bps/s                                   ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=5.9k bps/s                                   ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Save current index block...                                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 0.0% finished ]                                                         ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 10.0% finished ]                                                        ||</span>
@@ -178,15 +179,15 @@ generation process (used by the Rsubread::buildindex function).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 90.0% finished ]                                                        ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 100.0% finished ]                                                       ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Total running time: 0.2 minutes.                      ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||Index /scratch/141165.1.ood/RtmpwygBTw/file7c336bcd3691/Duck_circoviru ... ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Total running time: 0.1 minutes.                      ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||Index /scratch/141827.1.ood/RtmpAAuKHE/file3bef21ac9b86/Duck_circoviru ... ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/141165.1.ood/RtmpwygBTw/file7c336bcd3691/Duck_circovirus_1"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/141827.1.ood/RtmpAAuKHE/file3bef21ac9b86/Duck_circovirus_1"</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">ref_temp</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">now</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Time difference of -12.11108 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Time difference of -11.36376 secs</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
