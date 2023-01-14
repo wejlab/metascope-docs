@@ -14,7 +14,7 @@ depending on the combined size of the reference fasta files."><!-- mathjax --><s
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.8</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -126,27 +126,22 @@ FALSE.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Download reference genome</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="download_refseq.html">download_refseq</a></span><span class="op">(</span><span class="st">'Shotokuvirae'</span>, reference <span class="op">=</span> <span class="cn">TRUE</span>, representative <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>                out_dir <span class="op">=</span> <span class="va">ref_temp</span>, compress <span class="op">=</span> <span class="cn">TRUE</span>, patho_out <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Finding Shotokuvirae</span>
+<span class="r-in"><span>                out_dir <span class="op">=</span> <span class="va">ref_temp</span>, compress <span class="op">=</span> <span class="cn">TRUE</span>, patho_out <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>                caching <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Shotokuvirae is a kingdom under the Viruses Superkingdom</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading the refseq table for viral</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Creating table of relevant taxa</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading 1 Shotokuvirae genome(s) from NCBI</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> DONE! Downloaded 1 genomes to /scratch/141827.1.ood/RtmpAAuKHE/file3bef42b42bf9//scratch/141827.1.ood/RtmpAAuKHE/file3bef42b42bf9/Shotokuvirae.fasta.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/141827.1.ood/RtmpAAuKHE/file3bef42b42bf9/Shotokuvirae.fasta.gz"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/154804.1.ood/Rtmpt8gEzE/file5ca4de18a73/Shotokuvirae.fasta.gz"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Create the reference library index files in the current directory</span></span></span>
 <span class="r-in"><span><span class="fu">mk_bowtie_index</span><span class="op">(</span>ref_dir <span class="op">=</span> <span class="va">ref_temp</span>, lib_dir <span class="op">=</span> <span class="va">ref_temp</span>,</span></span>
 <span class="r-in"><span>                lib_name <span class="op">=</span> <span class="st">"target"</span>, threads <span class="op">=</span> <span class="fl">1</span>, overwrite <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Successfully built the Bowtie2 indexes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/141827.1.ood/RtmpAAuKHE/file3bef42b42bf9"</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Index building complete</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/154804.1.ood/Rtmpt8gEzE/file5ca4de18a73"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Remove temporary directory</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">ref_temp</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>

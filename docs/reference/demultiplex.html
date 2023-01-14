@@ -20,7 +20,7 @@ barcode and writes all the reads from that barcode to separate .fastq files."><!
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.8</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,9 +77,10 @@ barcode and writes all the reads from that barcode to separate .fastq files.</p>
 <span>  <span class="va">indexFile</span>,</span>
 <span>  <span class="va">readFile</span>,</span>
 <span>  rcBarcodes <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  location <span class="op">=</span> <span class="st">"./demultiplex_fastq"</span>,</span>
+<span>  location <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  threads <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  hammingDist <span class="op">=</span> <span class="fl">0</span></span>
+<span>  hammingDist <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -110,7 +111,7 @@ complemented to match the sequences in the <code>indexFile</code>? Defaults to
 
 <dt>location</dt>
 <dd><p>A directory location to store the demultiplexed read files.
-Defaults to generate a new subdirectory at './demultiplex_fastq'</p></dd>
+Defaults to generate a new temporary directory.</p></dd>
 
 
 <dt>threads</dt>
@@ -127,6 +128,10 @@ Warning: if the Hamming Distance is <code>&gt;=1</code> and this leads to inexac
 index matches to more than one barcode, that read will be written to more
 than one demultiplexed read files.</p></dd>
 
+
+<dt>quiet</dt>
+<dd><p>Turns off most messages. Default is <code>TRUE</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -141,10 +146,6 @@ than one demultiplexed read files.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">## Create temporary directory</span></span></span>
-<span class="r-in"><span><span class="va">ref_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">ref_temp</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Get barcode, index, and read data locations</span></span></span>
 <span class="r-in"><span><span class="va">barcodePath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"barcodes.txt"</span>, package <span class="op">=</span> <span class="st">"MetaScope"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">indexPath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"virus_example_index.fastq"</span>,</span></span>
@@ -154,28 +155,8 @@ than one demultiplexed read files.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Demultiplex</span></span></span>
 <span class="r-in"><span><span class="va">demult</span> <span class="op">&lt;-</span> <span class="fu">demultiplex</span><span class="op">(</span><span class="va">barcodePath</span>, <span class="va">indexPath</span>, <span class="va">readPath</span>, rcBarcodes <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>                      hammingDist <span class="op">=</span> <span class="fl">2</span>, location <span class="op">=</span> <span class="va">ref_temp</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading Sample Names and Barcodes from: /scratch/141827.1.ood/RtmpCivb9t/temp_libpath36857f3994ab/MetaScope/extdata/barcodes.txt</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found information for 6 samples/barcodes</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading Index File: /scratch/141827.1.ood/RtmpCivb9t/temp_libpath36857f3994ab/MetaScope/extdata/virus_example_index.fastq</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found indexes for 150 reads</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading Sequence File: /scratch/141827.1.ood/RtmpCivb9t/temp_libpath36857f3994ab/MetaScope/extdata/virus_example.fastq</span>
+<span class="r-in"><span>                      hammingDist <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>metadata columns on input DNAStringSet object were dropped</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 150 reads</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Finding reads for barcode: TCCACGT</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 25 reads, writing reads to: /scratch/141827.1.ood/RtmpAAuKHE/file3bef5e5a6018/CDV_TCCACGT.fastq.gz</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Finding reads for barcode: ACAGGCT</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 25 reads, writing reads to: /scratch/141827.1.ood/RtmpAAuKHE/file3bef5e5a6018/LaCrosse_ACAGGCT.fastq.gz</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Finding reads for barcode: ATCGTGC</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 25 reads, writing reads to: /scratch/141827.1.ood/RtmpAAuKHE/file3bef5e5a6018/RSV_ATCGTGC.fastq.gz</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Finding reads for barcode: ACTACAG</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 25 reads, writing reads to: /scratch/141827.1.ood/RtmpAAuKHE/file3bef5e5a6018/EboV_ACTACAG.fastq.gz</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Finding reads for barcode: AAGTCGC</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 25 reads, writing reads to: /scratch/141827.1.ood/RtmpAAuKHE/file3bef5e5a6018/Measles_AAGTCGC.fastq.gz</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Finding reads for barcode: TCTCAGG</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 25 reads, writing reads to: /scratch/141827.1.ood/RtmpAAuKHE/file3bef5e5a6018/VSV_TCTCAGG.fastq.gz</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 0</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Found 0 reads without a matching barcode (0%), writing reads to: /scratch/141827.1.ood/RtmpAAuKHE/file3bef5e5a6018/orphans.fastq.gz</span>
 <span class="r-in"><span><span class="va">demult</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   SampleName Barcode NumberOfReads</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1        CDV TCCACGT            25</span>
@@ -184,9 +165,6 @@ than one demultiplexed read files.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4       EboV ACTACAG            25</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5    Measles AAGTCGC            25</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6        VSV TCTCAGG            25</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Remove temporary directory</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">ref_temp</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

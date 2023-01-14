@@ -20,7 +20,7 @@ genomes."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/ma
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.8</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,8 @@ genomes.</p>
 <span>  <span class="va">align_file</span>,</span>
 <span>  bowtie2_options <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  threads <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  overwrite <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  overwrite <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -134,6 +135,10 @@ Default is 1 thread.</p></dd>
 <dd><p>Whether existing files should be overwritten. Default is
 FALSE.</p></dd>
 
+
+<dt>quiet</dt>
+<dd><p>Turns off most messages. Default is <code>TRUE</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -155,21 +160,16 @@ FALSE.</p></dd>
 <span class="r-in"><span>                           reference <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>                           representative <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
 <span class="r-in"><span>                           compress <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
-<span class="r-in"><span>                           out_dir <span class="op">=</span> <span class="va">target_ref_temp</span></span></span>
+<span class="r-in"><span>                           out_dir <span class="op">=</span> <span class="va">target_ref_temp</span>,</span></span>
+<span class="r-in"><span>                           caching <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Finding Measles morbillivirus</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Measles morbillivirus is a species under the Viruses Superkingdom</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading the refseq table for viral</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Creating table of relevant taxa</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading 1 Measles morbillivirus genome(s) from NCBI</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> DONE! Downloaded 1 genomes to /scratch/141827.1.ood/RtmpAAuKHE/file3bef7b502b2b//scratch/141827.1.ood/RtmpAAuKHE/file3bef7b502b2b/Measles_morbillivirus.fasta.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/141827.1.ood/RtmpAAuKHE/file3bef7b502b2b/Measles_morbillivirus.fasta.gz"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/154804.1.ood/Rtmpt8gEzE/file5ca3e38e809/Measles_morbillivirus.fasta.gz"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Create temporary directory to store the indices</span></span></span>
 <span class="r-in"><span><span class="va">index_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span></span>
@@ -183,8 +183,8 @@ FALSE.</p></dd>
 <span class="r-in"><span>  overwrite <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Successfully built the Bowtie2 indexes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/141827.1.ood/RtmpAAuKHE/file3bef53abff11"</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Index building complete</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/154804.1.ood/Rtmpt8gEzE/file5ca72311150"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Create temporary directory for final file</span></span></span>
 <span class="r-in"><span><span class="va">output_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span></span>
@@ -204,12 +204,8 @@ FALSE.</p></dd>
 <span class="r-in"><span>    align_file <span class="op">=</span> <span class="st">"bowtie_target"</span>,</span></span>
 <span class="r-in"><span>    overwrite <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Attempting to perform Bowtie2 alignment on target index</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Samtools found on system. Using samtools to create bam file"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Samtools not found on system. Using Rsamtools to create bam file"</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Filtering unmapped reads</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Library alignment complete</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> DONE! Alignments written to /scratch/141827.1.ood/RtmpAAuKHE/file3bef2affcc47/bowtie_target.bam</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Remove extra folders</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">target_ref_temp</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>

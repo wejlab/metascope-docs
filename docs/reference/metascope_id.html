@@ -18,7 +18,7 @@ library/.bam files use NCBI accession names for reference names (rnames in
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.8</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,7 +77,8 @@ library/.bam files use NCBI accession names for reference names (rnames in
 <span>  out_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu">tools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/tools/fileutils.html" class="external-link">file_path_sans_ext</a></span><span class="op">(</span><span class="va">input_file</span><span class="op">)</span>, <span class="st">".metascope_id.csv"</span><span class="op">)</span>,</span>
 <span>  convEM <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">10000</span>,</span>
 <span>  maxitsEM <span class="op">=</span> <span class="fl">25</span>,</span>
-<span>  num_species_plot <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  num_species_plot <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -126,6 +127,10 @@ is'</p></dd>
 Default is <code>NULL</code>, which saves coverage plots for the ten most highly
 abundant species.</p></dd>
 
+
+<dt>quiet</dt>
+<dd><p>Turns off most messages. Default is <code>TRUE</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -148,32 +153,18 @@ abundant species.</p></dd>
 <span class="r-in"><span><span class="co">#### Subread aligned bam file</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Create object with path to filtered subread csv.gz file</span></span></span>
-<span class="r-in"><span><span class="va">bamPath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,<span class="st">"subread_target.filtered.csv.gz"</span>,</span></span>
-<span class="r-in"><span>                       package <span class="op">=</span> <span class="st">"MetaScope"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">copied_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">file_temp</span>, <span class="st">"subread_target.filtered.csv.gz"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="va">bamPath</span>, <span class="va">copied_csv</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">filt_file</span> <span class="op">&lt;-</span> <span class="st">"subread_target.filtered.csv.gz"</span></span></span>
+<span class="r-in"><span><span class="va">bamPath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="va">filt_file</span>, package <span class="op">=</span> <span class="st">"MetaScope"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="va">bamPath</span>, <span class="va">file_temp</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Run metascope id with the aligner option set to bowtie2</span></span></span>
-<span class="r-in"><span><span class="fu">metascope_id</span><span class="op">(</span>input_file <span class="op">=</span> <span class="va">copied_csv</span>, aligner <span class="op">=</span> <span class="st">"subread"</span>,</span></span>
-<span class="r-in"><span>             num_species_plot <span class="op">=</span> <span class="fl">0</span>, input_type <span class="op">=</span> <span class="st">"csv.gz"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading .csv.gz file: /scratch/141827.1.ood/RtmpAAuKHE/file3bef4f356bc3/subread_target.filtered.csv.gz</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 120 reads aligned to 15 NCBI accessions</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Obtaining taxonomy and genome names</span>
+<span class="r-in"><span><span class="fu">metascope_id</span><span class="op">(</span>input_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">file_temp</span>, <span class="va">filt_file</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>             aligner <span class="op">=</span> <span class="st">"subread"</span>, num_species_plot <span class="op">=</span> <span class="fl">0</span>,</span></span>
+<span class="r-in"><span>             input_type <span class="op">=</span> <span class="st">"csv.gz"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 2 unique NCBI taxonomy IDs</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Setting up the EM algorithm</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Starting EM iterations</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 1100.527318326282</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 20.00694441476995597</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 30.00032363784016558</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 41.49008395637793e-05</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	DONE! Converged in 4 iterations.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Found reads for 2 genomes</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Results written to /scratch/141827.1.ood/RtmpAAuKHE/file3bef4f356bc3/subread_target.filtered.csv.metascope_id.csv</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No coverage plots created</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   TaxonomyID Genome                              read_…¹ Propo…² readsEM EMPro…³</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -184,30 +175,17 @@ abundant species.</p></dd>
 <span class="r-in"><span><span class="co">#### Bowtie 2 aligned .csv.gz file</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Create object with path to filtered bowtie2 bam file</span></span></span>
-<span class="r-in"><span><span class="va">bamPath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,<span class="st">"bowtie_target.filtered.csv.gz"</span>,</span></span>
-<span class="r-in"><span>                       package <span class="op">=</span> <span class="st">"MetaScope"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">copied_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">file_temp</span>, <span class="st">"bowtie_target.filtered.csv.gz"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="va">bamPath</span>, <span class="va">copied_csv</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">bowtie_file</span> <span class="op">&lt;-</span> <span class="st">"bowtie_target.filtered.csv.gz"</span></span></span>
+<span class="r-in"><span><span class="va">bamPath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="va">bowtie_file</span>, package <span class="op">=</span> <span class="st">"MetaScope"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="va">bamPath</span>, <span class="va">file_temp</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Run metascope id with the aligner option set to bowtie2</span></span></span>
-<span class="r-in"><span><span class="fu">metascope_id</span><span class="op">(</span>input_file <span class="op">=</span> <span class="va">copied_csv</span>, aligner <span class="op">=</span> <span class="st">"bowtie2"</span>,</span></span>
+<span class="r-in"><span><span class="fu">metascope_id</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">file_temp</span>, <span class="va">bowtie_file</span><span class="op">)</span>, aligner <span class="op">=</span> <span class="st">"bowtie2"</span>,</span></span>
 <span class="r-in"><span>             num_species_plot <span class="op">=</span> <span class="fl">0</span>, input_type <span class="op">=</span> <span class="st">"csv.gz"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Reading .csv.gz file: /scratch/141827.1.ood/RtmpAAuKHE/file3bef4f356bc3/bowtie_target.filtered.csv.gz</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 6 reads aligned to 1 NCBI accessions</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Obtaining taxonomy and genome names</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	Found 1 unique NCBI taxonomy IDs</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Setting up the EM algorithm</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Starting EM iterations</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 15</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 20</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 	DONE! Converged in 2 iterations.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Found reads for 1 genomes</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Results written to /scratch/141827.1.ood/RtmpAAuKHE/file3bef4f356bc3/bowtie_target.filtered.csv.metascope_id.csv</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No coverage plots created</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   TaxonomyID Genome                         read_count Proport…¹ readsEM EMPro…²</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>

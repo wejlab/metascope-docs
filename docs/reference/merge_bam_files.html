@@ -18,7 +18,7 @@ intended for direct use."><!-- mathjax --><script src="https://cdnjs.cloudflare.
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.8</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,8 @@ intended for direct use.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">merge_bam_files</span><span class="op">(</span></span>
 <span>  <span class="va">bam_files</span>,</span>
 <span>  <span class="va">destination</span>,</span>
-<span>  head_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">destination</span>, <span class="st">"_header.sam"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span>
+<span>  head_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">destination</span>, <span class="st">"_header.sam"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>,</span>
+<span>  <span class="va">quiet</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -90,6 +91,10 @@ intended for direct use.</p>
 <dd><p>A file name and location for the combined header file.
 Defaults to the destination. For example, 'example.bam' will be written as
 'example.bam'.</p></dd>
+
+
+<dt>quiet</dt>
+<dd><p>Turns off most messages. Default is <code>TRUE</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

@@ -24,7 +24,7 @@ Rbowtie2 equivalent of this function, see filter_host_bowtie."><!-- mathjax --><
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.8</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,7 +86,8 @@ Rbowtie2 equivalent of this function, see <code>filter_host_bowtie</code>.</p>
 <span>  output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu">tools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/tools/fileutils.html" class="external-link">file_path_sans_ext</a></span><span class="op">(</span><span class="va">reads_bam</span><span class="op">)</span>, <span class="st">"filtered"</span>, sep <span class="op">=</span> <span class="st">"."</span><span class="op">)</span>,</span>
 <span>  subread_options <span class="op">=</span> <span class="va">align_details</span>,</span>
 <span>  YS <span class="op">=</span> <span class="fl">1e+05</span>,</span>
-<span>  threads <span class="op">=</span> <span class="fl">1</span></span>
+<span>  threads <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -140,6 +141,10 @@ the bam file at once for chunked functions. Default is 100000.</p></dd>
 <dd><p>The amount of threads available for the function. Default is 1
 thread.</p></dd>
 
+
+<dt>quiet</dt>
+<dd><p>Turns off most messages. Default is <code>TRUE</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -169,23 +174,17 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Download filter genome</span></span></span>
 <span class="r-in"><span><span class="va">all_species</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Staphylococcus aureus subsp. aureus str. Newman"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">all_ref</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply</a></span><span class="op">(</span><span class="va">all_species</span>, <span class="fu">MetaScope</span><span class="fu">::</span><span class="va"><a href="download_refseq.html">download_refseq</a></span>, </span></span>
+<span class="r-in"><span><span class="va">all_ref</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply</a></span><span class="op">(</span><span class="va">all_species</span>, <span class="fu">MetaScope</span><span class="fu">::</span><span class="va"><a href="download_refseq.html">download_refseq</a></span>,</span></span>
 <span class="r-in"><span>                  reference <span class="op">=</span> <span class="cn">FALSE</span>, representative <span class="op">=</span> <span class="cn">FALSE</span>, compress <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
-<span class="r-in"><span>                  out_dir <span class="op">=</span> <span class="va">filter_ref_temp</span>, FUN.VALUE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Finding Staphylococcus aureus subsp. aureus str. Newman</span>
+<span class="r-in"><span>                  out_dir <span class="op">=</span> <span class="va">filter_ref_temp</span>, caching <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>                  FUN.VALUE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Staphylococcus aureus subsp. aureus str. Newman is a strain under the Bacteria Superkingdom</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading the refseq table for bacteria</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Creating table of relevant taxa</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading 2 Staphylococcus aureus subsp. aureus str. Newman genome(s) from NCBI</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> DONE! Downloaded 2 genomes to /scratch/141827.1.ood/RtmpAAuKHE/file3bef3841fd2c//scratch/141827.1.ood/RtmpAAuKHE/file3bef3841fd2c/Staphylococcus_aureus_subsp._aureus_str._Newman.fasta.gz</span>
 <span class="r-in"><span><span class="va">ind_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply</a></span><span class="op">(</span><span class="va">all_ref</span>, <span class="va">mk_subread_index</span>, FUN.VALUE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Library size is 0 GBs. Building the Rsubread index</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         ==========     _____ _    _ ____  _____  ______          _____  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ </span>
@@ -203,7 +202,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||          Repeat threshold : 100 repeats                                    ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||              Gapped index : no                                             ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||       Free / total memory : 225.4GB / 251.7GB                              ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||       Free / total memory : 237.0GB / 251.7GB                              ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||               Input files : 1 file in total                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                             o Staphylococcus_aureus_subsp._aureus_str. ... ||</span>
@@ -216,30 +215,30 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> || No format issues were found                                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Scan uninformative subreads in reference sequences ...                     ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Estimate the index size...                                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=1811.0k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=2831.4k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=3479.8k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=3940.3k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=4291.0k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=4559.9k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=4753.4k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=4936.4k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=5067.6k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=5192.1k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=5302.1k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=2965.7k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=4302.8k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=5050.9k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=5430.8k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=5519.1k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=5598.9k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=5646.3k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=5678.4k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=5698.8k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=5804.8k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=5904.7k bps/s                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || 3.0 GB of memory is needed for index building.                             ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Build the index...                                                         ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=206.2k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=383.7k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=537.3k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=670.5k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=789.3k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=873.2k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=947.7k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=1022.3k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=1094.5k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=1162.2k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=1223.2k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=349.5k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=638.4k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=878.7k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=1086.9k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=1266.9k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=1424.8k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=1556.7k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=1679.3k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=1788.9k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=1884.8k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=1967.2k bps/s                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Save current index block...                                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 0.0% finished ]                                                         ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 10.0% finished ]                                                        ||</span>
@@ -254,7 +253,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 100.0% finished ]                                                       ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Total running time: 0.2 minutes.                      ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||Index /scratch/141827.1.ood/RtmpAAuKHE/file3bef3841fd2c/Staphylococcus ... ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||Index /scratch/154804.1.ood/Rtmpt8gEzE/file5ca727a25f3/Staphylococcus_ ... ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -267,7 +266,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-in"><span><span class="va">refPath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">filter_ref_temp</span>, <span class="st">"subread_target.bam"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span>from <span class="op">=</span> <span class="va">readPath</span>, to <span class="op">=</span> <span class="va">refPath</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"align_details"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"align_details"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">align_details</span><span class="op">[[</span><span class="st">"type"</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"rna"</span></span></span>
 <span class="r-in"><span><span class="va">align_details</span><span class="op">[[</span><span class="st">"phredOffset"</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">10</span></span></span>
 <span class="r-in"><span><span class="co"># Just to get it to align - toy example!</span></span></span>
@@ -278,9 +277,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-in"><span>  <span class="va">refPath</span>, lib_dir <span class="op">=</span> <span class="va">filter_ref_temp</span>,</span></span>
 <span class="r-in"><span>  libs <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html" class="external-link">str_replace_all</a></span><span class="op">(</span><span class="va">all_species</span>, <span class="st">" "</span>, <span class="st">"_"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  threads <span class="op">=</span> <span class="fl">1</span>, subread_options <span class="op">=</span> <span class="va">align_details</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Writing Intermediate FASTQ file to /scratch/141827.1.ood/RtmpAAuKHE/file3bef3841fd2c/intermediate.fastq.gz</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Intermediate FASTQ file written to/scratch/141827.1.ood/RtmpAAuKHE/file3bef3841fd2c/intermediate.fastq.gz</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         ==========     _____ _    _ ____  _____  ______          _____  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ </span>
@@ -309,7 +306,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> //================ Running (01-Nov-2022 12:01:29, pid=15343) =================\\</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> //================= Running (14-Jan-2023 15:29:07, pid=1482) =================\\</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Check the input reads.                                                     ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || The input file contains base space reads.                                  ||</span>
@@ -349,10 +346,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Removing reads mapped to host indices</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> DONE!</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> DONE! Alignments written to /scratch/141827.1.ood/RtmpAAuKHE/file3bef3841fd2c/subread_target.filtered.csv.gz</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Remove temporary directory</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">filter_ref_temp</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>

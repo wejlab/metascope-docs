@@ -20,7 +20,7 @@ single compressed or uncompressed .fasta file."><!-- mathjax --><script src="htt
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.8</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +78,9 @@ single compressed or uncompressed .fasta file.</p>
 <span>  representative <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  compress <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  patho_out <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  out_dir <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  out_dir <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  caching <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -114,7 +116,17 @@ Defaults to <code>FALSE</code>.</p></dd>
 
 <dt>out_dir</dt>
 <dd><p>Character string giving the name of the directory to which
-libraries should be output.</p></dd>
+libraries should be output. Defaults to creation of a new temporary
+directory.</p></dd>
+
+
+<dt>caching</dt>
+<dd><p>Whether to use BiocFileCache when downloading genomes.
+Default is <code>FALSE</code>.</p></dd>
+
+
+<dt>quiet</dt>
+<dd><p>Turns off most messages. Default is <code>TRUE</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -139,28 +151,18 @@ at any level of the table will be acknowledged.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#### Download RefSeq genomes</span></span></span>
-<span class="r-in"><span><span class="co">## Create a temporary directory to store libraries</span></span></span>
-<span class="r-in"><span><span class="va">ref_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">ref_temp</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Download all RefSeq reference Shotokuvirae kingdom genomes</span></span></span>
 <span class="r-in"><span><span class="fu">download_refseq</span><span class="op">(</span><span class="st">'Shotokuvirae'</span>, reference <span class="op">=</span> <span class="cn">TRUE</span>, representative <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>                out_dir <span class="op">=</span> <span class="va">ref_temp</span>, compress <span class="op">=</span> <span class="cn">TRUE</span>, patho_out <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Finding Shotokuvirae</span>
+<span class="r-in"><span>                out_dir <span class="op">=</span> <span class="cn">NULL</span>, compress <span class="op">=</span> <span class="cn">TRUE</span>, patho_out <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>                caching <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Shotokuvirae is a kingdom under the Viruses Superkingdom</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading the refseq table for viral</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Creating table of relevant taxa</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading 1 Shotokuvirae genome(s) from NCBI</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> DONE! Downloaded 1 genomes to /scratch/141827.1.ood/RtmpAAuKHE/file3bef14ca4114//scratch/141827.1.ood/RtmpAAuKHE/file3bef14ca4114/Shotokuvirae.fasta.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/141827.1.ood/RtmpAAuKHE/file3bef14ca4114/Shotokuvirae.fasta.gz"</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">ref_temp</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/154804.1.ood/Rtmpt8gEzE/file5ca14831533/Shotokuvirae.fasta.gz"</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
