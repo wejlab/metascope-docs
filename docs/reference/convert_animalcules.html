@@ -5,7 +5,7 @@ allows interoperability of metascope_id output with both animalcules
 and QIIME. After running this function, the user should save the returned MAE
 to an RDS file using a function like saveRDS to upload the output into
 the animalcules package."><title>Create a multi-assay experiment from MetaScope output for usage with
-animalcules — convert_animalcules • MetaScope</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Create a multi-assay experiment from MetaScope output for usage with
+animalcules — convert_animalcules • MetaScope</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Create a multi-assay experiment from MetaScope output for usage with
 animalcules — convert_animalcules"><meta property="og:description" content="Upon completion of the MetaScope pipeline, users can analyze and visualize
 abundances in their samples using the animalcules package. This function
 allows interoperability of metascope_id output with both animalcules
@@ -22,7 +22,7 @@ the animalcules package."><!-- mathjax --><script src="https://cdnjs.cloudflare.
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.12</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,10 +79,11 @@ the <code>animalcules</code> package.</p>
 <span>  <span class="va">meta_counts</span>,</span>
 <span>  <span class="va">annot_path</span>,</span>
 <span>  <span class="va">which_annot_col</span>,</span>
-<span>  end_string <span class="op">=</span> <span class="st">".filtered.metascope_id.csv"</span>,</span>
+<span>  end_string <span class="op">=</span> <span class="st">".metascope_id.csv"</span>,</span>
 <span>  qiime_biom_out <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  path_to_write <span class="op">=</span> <span class="st">"."</span>,</span>
-<span>  NCBI_key <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  NCBI_key <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  num_tries <span class="op">=</span> <span class="fl">5</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -105,7 +106,7 @@ containing the sample IDs. These should be the same as the
 
 <dt>end_string</dt>
 <dd><p>The end string used at the end of the metascope_id files.
-Default is ".filtered.metascope_id.csv".</p></dd>
+Default is ".metascope_id.csv".</p></dd>
 
 
 <dt>qiime_biom_out</dt>
@@ -125,6 +126,10 @@ files be written? Should be a character string of the folder path. Default is
 <dd><p>(character) NCBI Entrez API key. optional. See
 taxize::use_entrez(). Due to the high number of requests made to NCBI, this
 function will be less prone to errors if you obtain an NCBI key.</p></dd>
+
+
+<dt>num_tries</dt>
+<dd><p>(numeric) Number of attempts to get UID.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -183,13 +188,24 @@ function will be less prone to errors if you obtain an NCBI key.</p></dd>
 <span class="r-in"><span><span class="va">outMAE</span> <span class="op">&lt;-</span> <span class="fu">convert_animalcules</span><span class="op">(</span>meta_counts <span class="op">=</span> <span class="va">out_files</span>,</span></span>
 <span class="r-in"><span>                              annot_path <span class="op">=</span> <span class="va">annot_dat</span>,</span></span>
 <span class="r-in"><span>                              which_annot_col <span class="op">=</span> <span class="st">"Sample"</span>,</span></span>
-<span class="r-in"><span>                              end_string <span class="op">=</span> <span class="st">".filtered.metascope_id.csv"</span>,</span></span>
+<span class="r-in"><span>                              end_string <span class="op">=</span> <span class="st">".metascope_id.csv"</span>,</span></span>
 <span class="r-in"><span>                              qiime_biom_out <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
 <span class="r-in"><span>                              path_to_write <span class="op">=</span> <span class="va">tempfolder</span>,</span></span>
 <span class="r-in"><span>                              NCBI_key <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Looking up taxon UIDs in NCBI database</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                              |                                                                      |   0%</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                              |=======================                                               |  33%</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                              |===============================================                       |  67%</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                              |======================================================================| 100%</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">tempfolder</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
