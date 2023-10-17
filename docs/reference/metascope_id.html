@@ -18,7 +18,7 @@ library/.bam files use NCBI accession names for reference names (rnames in
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.4</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,6 +73,8 @@ library/.bam files use NCBI accession names for reference names (rnames in
 <span>  <span class="va">input_file</span>,</span>
 <span>  input_type <span class="op">=</span> <span class="st">"csv.gz"</span>,</span>
 <span>  aligner <span class="op">=</span> <span class="st">"bowtie2"</span>,</span>
+<span>  db <span class="op">=</span> <span class="st">"ncbi"</span>,</span>
+<span>  db_feature_table <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  NCBI_key <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  out_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">dirname</a></span><span class="op">(</span><span class="va">input_file</span><span class="op">)</span>,</span>
 <span>  convEM <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">10000</span>,</span>
@@ -85,7 +87,7 @@ library/.bam files use NCBI accession names for reference names (rnames in
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>input_file</dt>
-<dd><p>The .bam or .csv.gz file that needs to be identified.</p></dd>
+<dd><p>The .bam or .csv.gz file of sample reads to be identified.</p></dd>
 
 
 <dt>input_type</dt>
@@ -96,6 +98,20 @@ library/.bam files use NCBI accession names for reference names (rnames in
 <dt>aligner</dt>
 <dd><p>The aligner which was used to create the bam file. Default is
 "bowtie2" but can also be set to "subread" or "other".</p></dd>
+
+
+<dt>db</dt>
+<dd><p>Currently accepts one of <code>c("ncbi", "silva", "other")</code>
+Default is <code>"ncbi"</code>, appropriate for samples aligned against indices
+compiled from NCBI whole genome databases. Alternatively, usage of an
+alternate database (like Greengenes2) should be specified with
+<code>"other"</code>.</p></dd>
+
+
+<dt>db_feature_table</dt>
+<dd><p>If <code>db = "other"</code>, a data.frame must be supplied
+with two columns, "Feature ID" matching the names of the alignment indices,
+and a second <code>character</code> column supplying the taxon identifying information.</p></dd>
 
 
 <dt>NCBI_key</dt>

@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   MetaScope_vignette: MetaScope_vignette.html
-last_built: 2023-10-05T17:00Z
+last_built: 2023-10-17T14:24Z
 urls:
   reference: https://compbiomed.github.io/metascope-docs/reference
   article: https://compbiomed.github.io/metascope-docs/articles
