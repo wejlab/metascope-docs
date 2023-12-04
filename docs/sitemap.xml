@@ -49,6 +49,12 @@
     <loc>https://compbiomed.github.io/metascope-docs/reference/bt2_loose_params.html</loc>
   </url>
   <url>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/bt2_missing_params.html</loc>
+  </url>
+  <url>
+    <loc>https://compbiomed.github.io/metascope-docs/reference/bt2_regular_params.html</loc>
+  </url>
+  <url>
     <loc>https://compbiomed.github.io/metascope-docs/reference/check_samtools_exists.html</loc>
   </url>
   <url>

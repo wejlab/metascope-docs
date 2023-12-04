@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,7 +93,7 @@ of Medicine, Boston,
 MA<br><a class="author_email" href="mailto:#"></a><a href="mailto:wej@bu.edu" class="email">wej@bu.edu</a>
       </address>
                   
-            <h4 data-toc-skip class="date">October 17, 2023</h4>
+            <h4 data-toc-skip class="date">December 3, 2023</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/compbiomed/MetaScope/blob/HEAD/vignettes/MetaScope_vignette.Rmd" class="external-link"><code>vignettes/MetaScope_vignette.Rmd</code></a></small>
       <div class="d-none name"><code>MetaScope_vignette.Rmd</code></div>
@@ -146,7 +146,7 @@ utilized. The Rbowtie2 functions utilize the <a href="https://www.nature.com/art
 functions utilize the Rsubread aligner (Liao 2019). The nuances of how
 to use each function can be found by looking at each function’s help
 manual (R command: <code>?&lt;name of function&gt;</code>). For
-reference, PathoScope2.0 uses the Bowtie2 aligner in its workflow.</p>
+reference, PathoScope 2.0 uses the Bowtie2 aligner in its workflow.</p>
 <p>In this vignette, we will analyze the mock data provided in the
 package via the Rbowtie2 workflow. We will utilize all the core
 functions in sequential order. We will make mention of the equivalent
@@ -233,12 +233,12 @@ These genomes together will act as our target genome library.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">all_species</span>, <span class="va">download_refseq</span>, </span>
 <span>       reference <span class="op">=</span> <span class="cn">FALSE</span>, representative <span class="op">=</span> <span class="cn">FALSE</span>, compress <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>       out_dir <span class="op">=</span> <span class="va">target_ref_temp</span>, caching <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##                                                                             Staphylococcus aureus RF122 </span></span>
-<span><span class="co">##               "/scratch/210239.1.ood/Rtmp3LvNJR/file4c48e354711d9/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
-<span><span class="co">##                                                               Staphylococcus aureus subsp. aureus ST398 </span></span>
-<span><span class="co">## "/scratch/210239.1.ood/Rtmp3LvNJR/file4c48e354711d9/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz" </span></span>
-<span><span class="co">##                                                                 Staphylococcus aureus subsp. aureus Mu3 </span></span>
-<span><span class="co">##   "/scratch/210239.1.ood/Rtmp3LvNJR/file4c48e354711d9/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz"</span></span></code></pre>
+<pre><code><span><span class="co">##                                                                              Staphylococcus aureus RF122 </span></span>
+<span><span class="co">##               "/scratch/220008.1.ood/Rtmpeb32Ke/file137dea3458076b/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
+<span><span class="co">##                                                                Staphylococcus aureus subsp. aureus ST398 </span></span>
+<span><span class="co">## "/scratch/220008.1.ood/Rtmpeb32Ke/file137dea3458076b/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz" </span></span>
+<span><span class="co">##                                                                  Staphylococcus aureus subsp. aureus Mu3 </span></span>
+<span><span class="co">##   "/scratch/220008.1.ood/Rtmpeb32Ke/file137dea3458076b/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz"</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="downloading-filter-genomes">Downloading filter genomes<a class="anchor" aria-label="anchor" href="#downloading-filter-genomes"></a>
@@ -256,7 +256,7 @@ library.</p>
 <span>  representative <span class="op">=</span> <span class="cn">FALSE</span>, reference <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  compress <span class="op">=</span> <span class="cn">TRUE</span>, out_dir <span class="op">=</span> <span class="va">filter_ref_temp</span>,</span>
 <span>  caching <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "/scratch/210239.1.ood/Rtmp3LvNJR/file4c48e37d75509/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/220008.1.ood/Rtmpeb32Ke/file137dea21e8a7d9/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -359,7 +359,7 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span></code></pre>
 <pre><code><span><span class="co">## Index building complete</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/210239.1.ood/Rtmp3LvNJR/file4c48e16b7cb5e"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/220008.1.ood/Rtmpeb32Ke/file137dea7d820776"</span></span></code></pre>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create filter index</span></span>
 <span><span class="fu"><a href="../reference/mk_bowtie_index.html">mk_bowtie_index</a></span><span class="op">(</span></span>
@@ -370,7 +370,7 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span>
 <span><span class="co">## Index building complete</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/210239.1.ood/Rtmp3LvNJR/file4c48e16b7cb5e"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/220008.1.ood/Rtmpeb32Ke/file137dea7d820776"</span></span></code></pre>
 <p>Following index creation, we will use the Bowtie2 aligner to map the
 reads to the target genomes with the <code><a href="../reference/align_target_bowtie.html">align_target_bowtie()</a></code>
 function (Rsubread equivalent: <code><a href="../reference/align_target.html">align_target()</a></code>). The
@@ -500,15 +500,15 @@ it actually does not.</p>
 <tbody>
 <tr class="odd">
 <td align="left">Staphylococcus aureus RF122</td>
-<td align="right">853</td>
+<td align="right">872</td>
 </tr>
 <tr class="even">
 <td align="left">Staphylococcus aureus subsp. aureus Mu3</td>
-<td align="right">57</td>
+<td align="right">61</td>
 </tr>
 <tr class="odd">
 <td align="left">Staphylococcus aureus subsp. aureus ST398</td>
-<td align="right">49</td>
+<td align="right">58</td>
 </tr>
 </tbody>
 </table>
@@ -558,15 +558,15 @@ alignments were to the correct Staphylococcus aureus RF122 strain.</p>
 <tbody>
 <tr class="odd">
 <td align="left">Staphylococcus aureus subsp. aureus ST398</td>
-<td align="right">2550</td>
+<td align="right">1780</td>
 </tr>
 <tr class="even">
 <td align="left">Staphylococcus aureus subsp. aureus Mu3</td>
-<td align="right">1728</td>
+<td align="right">1301</td>
 </tr>
 <tr class="odd">
 <td align="left">Staphylococcus aureus RF122</td>
-<td align="right">171</td>
+<td align="right">127</td>
 </tr>
 </tbody>
 </table>
@@ -599,8 +599,8 @@ reference names.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 2 × 6</span></span></span>
 <span><span class="co">##   TaxonomyID Genome                   read_count Proportion readsEM EMProportion</span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> 273036     Staphylococcus aureus R…        957    0.998       957      0.998  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> 418127     Staphylococcus aureus s…          2    0.002<span style="text-decoration: underline;">09</span>       2      0.002<span style="text-decoration: underline;">05</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> 273036     Staphylococcus aureus R…        967     0.976    967.        0.976 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> 418127     Staphylococcus aureus s…         24     0.024<span style="text-decoration: underline;">2</span>    24.2       0.024<span style="text-decoration: underline;">4</span></span></span></code></pre>
 <p><strong>Note: the next code block is included for the sake of
 examining the vignette example, but can be skipped. Your results are in
 the CSV file produced by the <code><a href="../reference/metascope_id.html">metascope_id()</a></code>
@@ -631,13 +631,13 @@ output CSV file.</p>
 <tbody>
 <tr class="odd">
 <td align="left">Staphylococcus aureus RF122</td>
-<td align="right">957</td>
-<td align="right">0.9979145</td>
+<td align="right">967</td>
+<td align="right">0.975782</td>
 </tr>
 <tr class="even">
 <td align="left">Staphylococcus aureus subsp. aureus Mu3</td>
-<td align="right">2</td>
-<td align="right">0.0020855</td>
+<td align="right">24</td>
+<td align="right">0.024218</td>
 </tr>
 </tbody>
 </table>
@@ -654,7 +654,7 @@ aureus</em> RF122 strain, the correct strain of origin.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## R version 4.3.1 (2023-06-16)</span></span>
 <span><span class="co">## Platform: x86_64-pc-linux-gnu (64-bit)</span></span>
-<span><span class="co">## Running under: AlmaLinux 8.8 (Sapphire Caracal)</span></span>
+<span><span class="co">## Running under: AlmaLinux 8.9 (Midnight Oncilla)</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Matrix products: default</span></span>
 <span><span class="co">## BLAS:   /share/pkg.8/r/4.3.1/install/lib64/R/lib/libRblas.so </span></span>
@@ -675,40 +675,40 @@ aureus</em> RF122 strain, the correct strain of origin.</p>
 <span><span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## other attached packages:</span></span>
-<span><span class="co">## [1] magrittr_2.0.3   MetaScope_1.1.4  BiocStyle_2.28.0</span></span>
+<span><span class="co">## [1] magrittr_2.0.3   MetaScope_1.3.2  BiocStyle_2.28.0</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## loaded via a namespace (and not attached):</span></span>
-<span><span class="co">##  [1] tidyselect_1.2.0        dplyr_1.1.2             blob_1.2.4             </span></span>
-<span><span class="co">##  [4] urltools_1.7.3          filelock_1.0.2          Biostrings_2.68.1      </span></span>
-<span><span class="co">##  [7] bitops_1.0-7            fastmap_1.1.1           RCurl_1.98-1.12        </span></span>
-<span><span class="co">## [10] BiocFileCache_2.8.0     sparsesvd_0.2-2         digest_0.6.31          </span></span>
-<span><span class="co">## [13] lifecycle_1.0.3         RSQLite_2.3.1           compiler_4.3.1         </span></span>
-<span><span class="co">## [16] rlang_1.1.1             sass_0.4.6              tools_4.3.1            </span></span>
-<span><span class="co">## [19] utf8_1.2.3              yaml_2.3.7              data.table_1.14.8      </span></span>
-<span><span class="co">## [22] knitr_1.43              conditionz_0.1.0        bit_4.0.5              </span></span>
-<span><span class="co">## [25] curl_5.0.1              xml2_1.3.4              BiocParallel_1.34.2    </span></span>
-<span><span class="co">## [28] httpcode_0.3.0          withr_2.5.0             purrr_1.0.1            </span></span>
-<span><span class="co">## [31] BiocGenerics_0.46.0     desc_1.4.2              qlcMatrix_0.9.7        </span></span>
+<span><span class="co">##  [1] tidyselect_1.2.0        dplyr_1.1.3             blob_1.2.4             </span></span>
+<span><span class="co">##  [4] urltools_1.7.3          filelock_1.0.2          Biostrings_2.70.1      </span></span>
+<span><span class="co">##  [7] bitops_1.0-7            fastmap_1.1.1           RCurl_1.98-1.13        </span></span>
+<span><span class="co">## [10] BiocFileCache_2.10.1    sparsesvd_0.2-2         digest_0.6.33          </span></span>
+<span><span class="co">## [13] lifecycle_1.0.4         RSQLite_2.3.3           compiler_4.3.1         </span></span>
+<span><span class="co">## [16] rlang_1.1.2             sass_0.4.7              tools_4.3.1            </span></span>
+<span><span class="co">## [19] utf8_1.2.4              yaml_2.3.7              data.table_1.14.8      </span></span>
+<span><span class="co">## [22] knitr_1.45              conditionz_0.1.0        bit_4.0.5              </span></span>
+<span><span class="co">## [25] curl_5.1.0              xml2_1.3.5              BiocParallel_1.36.0    </span></span>
+<span><span class="co">## [28] httpcode_0.3.0          withr_2.5.2             purrr_1.0.2            </span></span>
+<span><span class="co">## [31] BiocGenerics_0.48.1     desc_1.4.2              qlcMatrix_0.9.7        </span></span>
 <span><span class="co">## [34] triebeard_0.4.1         grid_4.3.1              stats4_4.3.1           </span></span>
-<span><span class="co">## [37] fansi_1.0.4             iterators_1.0.14        docopt_0.7.1           </span></span>
+<span><span class="co">## [37] fansi_1.0.5             iterators_1.0.14        docopt_0.7.1           </span></span>
 <span><span class="co">## [40] crul_1.4.0              taxize_0.9.100          cli_3.6.1              </span></span>
-<span><span class="co">## [43] rmarkdown_2.22          crayon_1.5.2            ragg_1.2.5             </span></span>
-<span><span class="co">## [46] generics_0.1.3          rstudioapi_0.14         httr_1.4.6             </span></span>
+<span><span class="co">## [43] rmarkdown_2.25          crayon_1.5.2            ragg_1.2.5             </span></span>
+<span><span class="co">## [46] generics_0.1.3          rstudioapi_0.15.0       httr_1.4.7             </span></span>
 <span><span class="co">## [49] DBI_1.1.3               ape_5.7-1               cachem_1.0.8           </span></span>
-<span><span class="co">## [52] stringr_1.5.0           zlibbioc_1.46.0         parallel_4.3.1         </span></span>
-<span><span class="co">## [55] BiocManager_1.30.21     XVector_0.40.0          vctrs_0.6.3            </span></span>
-<span><span class="co">## [58] Matrix_1.6-0            slam_0.1-50             jsonlite_1.8.5         </span></span>
-<span><span class="co">## [61] bookdown_0.34           IRanges_2.34.1          S4Vectors_0.38.1       </span></span>
+<span><span class="co">## [52] stringr_1.5.1           zlibbioc_1.48.0         parallel_4.3.1         </span></span>
+<span><span class="co">## [55] BiocManager_1.30.21     XVector_0.42.0          vctrs_0.6.4            </span></span>
+<span><span class="co">## [58] Matrix_1.6-0            slam_0.1-50             jsonlite_1.8.7         </span></span>
+<span><span class="co">## [61] bookdown_0.34           IRanges_2.36.0          S4Vectors_0.40.1       </span></span>
 <span><span class="co">## [64] bit64_4.0.5             systemfonts_1.0.4       foreach_1.5.2          </span></span>
-<span><span class="co">## [67] jquerylib_0.1.4         glue_1.6.2              Rbowtie2_2.6.0         </span></span>
-<span><span class="co">## [70] pkgdown_2.0.7           codetools_0.2-19        stringi_1.7.12         </span></span>
-<span><span class="co">## [73] GenomeInfoDb_1.36.1     GenomicRanges_1.52.0    tibble_3.2.1           </span></span>
-<span><span class="co">## [76] pillar_1.9.0            htmltools_0.5.5         GenomeInfoDbData_1.2.10</span></span>
-<span><span class="co">## [79] R6_2.5.1                dbplyr_2.3.2            textshaping_0.3.6      </span></span>
-<span><span class="co">## [82] bold_1.3.0              rprojroot_2.0.3         evaluate_0.21          </span></span>
-<span><span class="co">## [85] lattice_0.21-8          Rsamtools_2.16.0        memoise_2.0.1          </span></span>
-<span><span class="co">## [88] bslib_0.5.0             Rcpp_1.0.10             uuid_1.1-0             </span></span>
-<span><span class="co">## [91] nlme_3.1-162            xfun_0.39               fs_1.6.2               </span></span>
+<span><span class="co">## [67] jquerylib_0.1.4         glue_1.6.2              Rbowtie2_2.8.0         </span></span>
+<span><span class="co">## [70] pkgdown_2.0.7           codetools_0.2-19        stringi_1.8.1          </span></span>
+<span><span class="co">## [73] GenomeInfoDb_1.38.1     GenomicRanges_1.54.1    tibble_3.2.1           </span></span>
+<span><span class="co">## [76] pillar_1.9.0            htmltools_0.5.7         GenomeInfoDbData_1.2.11</span></span>
+<span><span class="co">## [79] R6_2.5.1                dbplyr_2.4.0            textshaping_0.3.6      </span></span>
+<span><span class="co">## [82] bold_1.3.0              rprojroot_2.0.3         evaluate_0.23          </span></span>
+<span><span class="co">## [85] lattice_0.21-8          Rsamtools_2.18.0        memoise_2.0.1          </span></span>
+<span><span class="co">## [88] bslib_0.5.1             Rcpp_1.0.11             uuid_1.1-1             </span></span>
+<span><span class="co">## [91] nlme_3.1-162            xfun_0.41               fs_1.6.3               </span></span>
 <span><span class="co">## [94] zoo_1.8-13              pkgconfig_2.0.3</span></span></code></pre>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
