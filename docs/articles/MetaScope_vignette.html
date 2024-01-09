@@ -97,7 +97,7 @@ of Medicine, Boston,
 MA<br><a class="author_email" href="mailto:#"></a><a href="mailto:wej@bu.edu" class="email">wej@bu.edu</a>
       </address>
                   
-            <h4 data-toc-skip class="date">January 2, 2024</h4>
+            <h4 data-toc-skip class="date">January 8, 2024</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/wejlab/MetaScope/blob/HEAD/vignettes/MetaScope_vignette.Rmd" class="external-link"><code>vignettes/MetaScope_vignette.Rmd</code></a></small>
       <div class="d-none name"><code>MetaScope_vignette.Rmd</code></div>
@@ -237,12 +237,12 @@ These genomes together will act as our target genome library.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">all_species</span>, <span class="va">download_refseq</span>, </span>
 <span>       reference <span class="op">=</span> <span class="cn">FALSE</span>, representative <span class="op">=</span> <span class="cn">FALSE</span>, compress <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>       out_dir <span class="op">=</span> <span class="va">target_ref_temp</span>, caching <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##                                                                              Staphylococcus aureus RF122 </span></span>
-<span><span class="co">##               "/scratch/224332.1.ood/RtmpxrXZDB/file38f05413c9b87e/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
-<span><span class="co">##                                                                Staphylococcus aureus subsp. aureus ST398 </span></span>
-<span><span class="co">## "/scratch/224332.1.ood/RtmpxrXZDB/file38f05413c9b87e/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz" </span></span>
-<span><span class="co">##                                                                  Staphylococcus aureus subsp. aureus Mu3 </span></span>
-<span><span class="co">##   "/scratch/224332.1.ood/RtmpxrXZDB/file38f05413c9b87e/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz"</span></span></code></pre>
+<pre><code><span><span class="co">##                                                                             Staphylococcus aureus RF122 </span></span>
+<span><span class="co">##               "/scratch/224893.1.ood/RtmpEqDSMY/file53c4a58e3f558/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
+<span><span class="co">##                                                               Staphylococcus aureus subsp. aureus ST398 </span></span>
+<span><span class="co">## "/scratch/224893.1.ood/RtmpEqDSMY/file53c4a58e3f558/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz" </span></span>
+<span><span class="co">##                                                                 Staphylococcus aureus subsp. aureus Mu3 </span></span>
+<span><span class="co">##   "/scratch/224893.1.ood/RtmpEqDSMY/file53c4a58e3f558/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz"</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="downloading-filter-genomes">Downloading filter genomes<a class="anchor" aria-label="anchor" href="#downloading-filter-genomes"></a>
@@ -260,7 +260,7 @@ library.</p>
 <span>  representative <span class="op">=</span> <span class="cn">FALSE</span>, reference <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  compress <span class="op">=</span> <span class="cn">TRUE</span>, out_dir <span class="op">=</span> <span class="va">filter_ref_temp</span>,</span>
 <span>  caching <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "/scratch/224332.1.ood/RtmpxrXZDB/file38f05457869bef/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/224893.1.ood/RtmpEqDSMY/file53c4a313c7e3e/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -363,7 +363,7 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span></code></pre>
 <pre><code><span><span class="co">## Index building complete</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/224332.1.ood/RtmpxrXZDB/file38f0546d301038"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/224893.1.ood/RtmpEqDSMY/file53c4a2d26edd3"</span></span></code></pre>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create filter index</span></span>
 <span><span class="fu"><a href="../reference/mk_bowtie_index.html">mk_bowtie_index</a></span><span class="op">(</span></span>
@@ -374,7 +374,7 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span>
 <span><span class="co">## Index building complete</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/224332.1.ood/RtmpxrXZDB/file38f0546d301038"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/224893.1.ood/RtmpEqDSMY/file53c4a2d26edd3"</span></span></code></pre>
 <p>Following index creation, we will use the Bowtie2 aligner to map the
 reads to the target genomes with the <code><a href="../reference/align_target_bowtie.html">align_target_bowtie()</a></code>
 function (Rsubread equivalent: <code><a href="../reference/align_target.html">align_target()</a></code>). The
@@ -538,11 +538,8 @@ alignments were to the correct Staphylococcus aureus RF122 strain.</p>
 <span><span class="va">unique_accession_taxid</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressMessages</a></span><span class="op">(</span></span>
 <span>    <span class="fu">taxize</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/taxize/reference/genbank2uid.html" class="external-link">genbank2uid</a></span><span class="op">(</span><span class="va">unique_accession_all</span>,</span>
-<span>                        batch_size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">unique_accession_all</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning: The following 112 of 112 queries could not be found:</span></span>
-<span><span class="co">##    [1] NC_007622.1 ... [111] NZ_LAWV01000009.1, [112] NZ_CP021178.1</span></span></code></pre>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">unique_accession_genome_name</span> <span class="op">&lt;-</span></span>
+<span>                        batch_size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">unique_accession_all</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">unique_accession_genome_name</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply</a></span><span class="op">(</span><span class="va">unique_accession_taxid</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"name"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="va">unique_accession_genome_name</span><span class="op">[</span><span class="va">accession_all_inds</span><span class="op">]</span></span>
@@ -562,10 +559,20 @@ alignments were to the correct Staphylococcus aureus RF122 strain.</p>
 <th align="left">Genome Assigned</th>
 <th align="right">Read Count</th>
 </tr></thead>
-<tbody><tr class="odd">
-<td align="left">unknown</td>
-<td align="right">3208</td>
-</tr></tbody>
+<tbody>
+<tr class="odd">
+<td align="left">Staphylococcus aureus subsp. aureus ST398</td>
+<td align="right">1780</td>
+</tr>
+<tr class="even">
+<td align="left">Staphylococcus aureus subsp. aureus Mu3</td>
+<td align="right">1301</td>
+</tr>
+<tr class="odd">
+<td align="left">Staphylococcus aureus RF122</td>
+<td align="right">127</td>
+</tr>
+</tbody>
 </table>
 </div>
 <div class="section level2">
@@ -585,7 +592,7 @@ taxonomy and genome names, reduces the mapping ambiguity using a mixture
 model, and outputs a .csv file with the results. Currently, it assumes
 that the genome library/.bam files use NCBI accession names for
 reference names.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/metascope_id.html">metascope_id</a></span><span class="op">(</span></span>
 <span>  <span class="va">final_map</span>,</span>
 <span>  input_type <span class="op">=</span> <span class="st">"bam"</span>,</span>
@@ -593,18 +600,20 @@ reference names.</p>
 <span>  aligner <span class="op">=</span> <span class="st">"bowtie2"</span>,</span>
 <span>  num_species_plot <span class="op">=</span> <span class="fl">0</span></span>
 <span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Warning: The following 100 of 112 queries could not be found:</span></span>
+<span><span class="co">##    [1] NC_007622.1 ... [99] NZ_LAWV01000020.1, [100] NZ_LAWV01000021.1</span></span></code></pre>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 2 × 6</span></span></span>
-<span><span class="co">##   TaxonomyID Genome                   read_count Proportion readsEM EMProportion</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> 273036     Staphylococcus aureus R…        967     0.976    967.        0.976 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> 418127     Staphylococcus aureus s…         24     0.024<span style="text-decoration: underline;">2</span>    24.2       0.024<span style="text-decoration: underline;">4</span></span></span></code></pre>
+<span><span class="co">##   TaxonomyID  Genome                  read_count Proportion readsEM EMProportion</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> NC_007622.1 unknown genome; access…        967     0.976    967.        0.976 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> NC_009782.1 unknown genome; access…         24     0.024<span style="text-decoration: underline;">2</span>    24.1       0.024<span style="text-decoration: underline;">4</span></span></span></code></pre>
 <p><strong>Note: the next code block is included for the sake of
 examining the vignette example, but can be skipped. Your results are in
 the CSV file produced by the <code><a href="../reference/metascope_id.html">metascope_id()</a></code>
 function.</strong></p>
 <p>We will now look at the read reassignment results reported in the
 output CSV file.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">relevant_col</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">dirname</a></span><span class="op">(</span><span class="va">final_map</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"bowtie_target.metascope_id.csv"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fl">2</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
@@ -627,18 +636,18 @@ output CSV file.</p>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">Staphylococcus aureus RF122</td>
+<td align="left">unknown genome; accession ID is NC_007622.1</td>
 <td align="right">967</td>
 <td align="right">0.975782</td>
 </tr>
 <tr class="even">
-<td align="left">Staphylococcus aureus subsp. aureus Mu3</td>
+<td align="left">unknown genome; accession ID is NC_009782.1</td>
 <td align="right">24</td>
 <td align="right">0.024218</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="st">".bowtie2.cerr.txt"</span><span class="op">)</span></span></code></pre></div>
 <p>We can see that the read reassignment function has reassigned the
 majority of the ambiguous alignments back to the <em>Staphylococcus
@@ -647,7 +656,7 @@ aureus</em> RF122 strain, the correct strain of origin.</p>
 <div class="section level2">
 <h2 id="session-info">Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
 </h2>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## R version 4.3.1 (2023-06-16)</span></span>
 <span><span class="co">## Platform: x86_64-pc-linux-gnu (64-bit)</span></span>
