@@ -55,6 +55,39 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.3.6" id="metascope-136-bioc-319">MetaScope 1.3.6 (Bioc 3.19)<a class="anchor" aria-label="anchor" href="#metascope-136-bioc-319"></a></h2>
+<div class="section level3">
+<h3 id="bug-fixes-1-3-6">Bug Fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-1-3-6"></a></h3>
+<ul><li>Identified the Rbowtie2 parameter k as being doubled when specified for bowtie filter or align steps.</li>
+<li>Added another call to taxize in <code><a href="../reference/convert_animalcules.html">convert_animalcules()</a></code> to catch any accessions that were not mapped to a UID in <code><a href="../reference/metascope_id.html">metascope_id()</a></code>, in addition to another call in <code><a href="../reference/metascope_id.html">metascope_id()</a></code> itself</li>
+</ul></div>
+<div class="section level3">
+<h3 id="major-changes-1-3-6">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-1-3-6"></a></h3>
+<ul><li>Altered <code>bt2_params</code> objects to reflect 98% identity (16S), 95% identity (metagenomics) and added a parameter for when the origin genome is thought to not be present in the reference database.</li>
+<li>Added SILVA <code>species_headers</code> object called internally in <code>convert_animalcules_silva</code>
+</li>
+<li>Added <code>convert_animalcules_silva</code> function</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.2.0" id="metascope-120-bioc-318">MetaScope 1.2.0 (Bioc 3.18)<a class="anchor" aria-label="anchor" href="#metascope-120-bioc-318"></a></h2>
+<div class="section level3">
+<h3 id="bug-fixes-1-2-0">Bug Fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-1-2-0"></a></h3>
+<ul><li>Fixed taxonomy table function to output correctly formatted table</li>
+<li>Fixed examples for various functions that were calling genomes with download_refseq but genomes were not able to be found.</li>
+<li>Fixed plot generation for <code><a href="../reference/metascope_id.html">metascope_id()</a></code>
+</li>
+<li>Fixed premature stopping of <code>download_refseq</code> for strains labeled as “no rank” in NCBI.</li>
+<li>Fixed identification of reads as unknown genomes (due to outdated reference databases that identify genomes now removed from NCBI). The unknown genomes will now be distinctly identified based on NCBI accession ID, which will separate them in the final results. IDs can also be looked up manually (on NCBI website) to see what the reads were aligning to.</li>
+<li>Incorporated unknown taxa (removed from NCBI databases) into output of <code><a href="../reference/convert_animalcules.html">convert_animalcules()</a></code>
+</li>
+</ul></div>
+<div class="section level3">
+<h3 id="major-changes-1-2-0">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-1-2-0"></a></h3>
+<ul><li>Added ability to identify reads from databases other than NCBI (known to work for Silva and Greengenes2)</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.99.0" id="metascope-0990-4192022">MetaScope 0.99.0 (4/19/2022)<a class="anchor" aria-label="anchor" href="#metascope-0990-4192022"></a></h2>
 <ul><li>Pre-Release version of MetaScope</li>
 </ul><div class="section level3">
