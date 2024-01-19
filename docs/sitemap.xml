@@ -61,6 +61,9 @@
     <loc>https://wejlab.github.io/metascope-docs/reference/convert_animalcules.html</loc>
   </url>
   <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/convert_animalcules_silva.html</loc>
+  </url>
+  <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/count_matches.html</loc>
   </url>
   <url>
@@ -104,5 +107,8 @@
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/remove_matches.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/species_headers.html</loc>
   </url>
 </urlset>

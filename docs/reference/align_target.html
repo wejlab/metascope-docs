@@ -3,7 +3,7 @@
 and multiple libraries. Aligns to each library separately, filters unmapped
 reads from each file, and then merges and sorts the .bam files from each
 library into one output file. If desired, output can be passed to
-`filter_host()` to remove reads that also map to filter library genomes."><title>Align microbiome reads to a set of reference libraries — align_target • MetaScope</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Align microbiome reads to a set of reference libraries — align_target"><meta property="og:description" content="This is the main MetaScope target library mapping function, using Rsubread
+`filter_host()` to remove reads that also map to filter library genomes."><title>Align microbiome reads to a set of reference libraries — align_target • MetaScope</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Align microbiome reads to a set of reference libraries — align_target"><meta property="og:description" content="This is the main MetaScope target library mapping function, using Rsubread
 and multiple libraries. Aligns to each library separately, filters unmapped
 reads from each file, and then merges and sorts the .bam files from each
 library into one output file. If desired, output can be passed to
@@ -18,7 +18,7 @@ library into one output file. If desired, output can be passed to
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.6</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -181,7 +181,7 @@ user's working directory. The function also outputs the new .bam filename.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||          Repeat threshold : 100 repeats                                    ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||              Gapped index : no                                             ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||       Free / total memory : 229.7GB / 251.3GB                              ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||       Free / total memory : 246.1GB / 251.3GB                              ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||               Input files : 1 file in total                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                             o Ovine_atadenovirus_D.fasta.gz                ||</span>
@@ -194,28 +194,28 @@ user's working directory. The function also outputs the new .bam filename.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || No format issues were found                                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Scan uninformative subreads in reference sequences ...                     ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Estimate the index size...                                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=31.2k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=62.1k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=92.8k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=123.1k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=153.2k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=183.1k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=212.8k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=242.2k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=271.4k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=300.4k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=31.8k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=63.4k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=94.6k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=125.6k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=156.3k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=186.8k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=217.0k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=247.1k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=276.8k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=306.3k bps/s                                 ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || 3.0 GB of memory is needed for index building.                             ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Build the index...                                                         ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=2.5k bps/s                                   ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=4.9k bps/s                                   ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=5.0k bps/s                                   ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=7.4k bps/s                                   ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=9.8k bps/s                                   ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=12.2k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=14.7k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=17.1k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=19.5k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=22.0k bps/s                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=24.4k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=9.9k bps/s                                   ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=12.4k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=14.8k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=17.3k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=19.7k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=22.2k bps/s                                  ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=24.6k bps/s                                  ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Save current index block...                                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 0.0% finished ]                                                         ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 10.0% finished ]                                                        ||</span>
@@ -230,7 +230,7 @@ user's working directory. The function also outputs the new .bam filename.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 100.0% finished ]                                                       ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Total running time: 0.1 minutes.                      ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||Index /scratch/224893.1.ood/RtmpcmyPT7/file5370921b7c283/Ovine_atadeno ... ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||Index /scratch/226367.1.ood/RtmpS0Azvr/file2feccf2a4dcddc/Ovine_ataden ... ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -283,7 +283,7 @@ user's working directory. The function also outputs the new .bam filename.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> //================ Running (08-Jan-2024 19:51:31, pid=341769) ================\\</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> //=============== Running (19-Jan-2024 10:23:48, pid=3140815) ================\\</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Check the input reads.                                                     ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || The input file contains base space reads.                                  ||</span>
