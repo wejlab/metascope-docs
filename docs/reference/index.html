@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.8</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,25 +54,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="reference-genome-library">Reference Genome Library<a class="anchor" aria-label="anchor" href="#reference-genome-library"></a></h2>
+      <h2 id="metademultiplex-optional-">MetaDemultiplex (optional)<a class="anchor" aria-label="anchor" href="#metademultiplex-optional-"></a></h2>
       
-      <p class="section-desc"></p><p>Start here to download reference genomes for processing.</p>
-
-      
-    </div><div id="" class="section level2">
-      
-      
-      
-
-      <dl><dt>
-          
-          <code><a href="download_refseq.html">download_refseq()</a></code> 
-        </dt>
-        <dd>Download RefSeq genome libraries</dd>
-      </dl></div><div class="section level2">
-      <h2 id="demultiplex">Demultiplex<a class="anchor" aria-label="anchor" href="#demultiplex"></a></h2>
-      
-      <p class="section-desc"></p><p>Preprocessing for 16S data.</p>
+      <p class="section-desc"></p><p>Obtain non-barcoded sequencing reads.</p>
 
       
     </div><div id="" class="section level2">
@@ -86,9 +70,9 @@
         </dt>
         <dd>Demultiplexing sequencing reads</dd>
       </dl></div><div class="section level2">
-      <h2 id="index-creation">Index Creation<a class="anchor" aria-label="anchor" href="#index-creation"></a></h2>
+      <h2 id="metaref">MetaRef<a class="anchor" aria-label="anchor" href="#metaref"></a></h2>
       
-      <p class="section-desc"></p><p>Create compatible indexes from downloaded reference genomes.</p>
+      <p class="section-desc"></p><p>Obtain target and filter genome sequences from NCBI nucleotide database and index using the Bowtie 2 or Subread aligner</p>
 
       
     </div><div id="" class="section level2">
@@ -97,6 +81,11 @@
       
 
       <dl><dt>
+          
+          <code><a href="download_refseq.html">download_refseq()</a></code> 
+        </dt>
+        <dd>Download RefSeq genome libraries</dd>
+      </dl><dl><dt>
           
           <code><a href="mk_bowtie_index.html">mk_bowtie_index()</a></code> 
         </dt>
@@ -107,9 +96,9 @@
         </dt>
         <dd>Make a Subread index</dd>
       </dl></div><div class="section level2">
-      <h2 id="alignment-with-reference-libraries">Alignment with Reference Libraries<a class="anchor" aria-label="anchor" href="#alignment-with-reference-libraries"></a></h2>
+      <h2 id="metaalign">MetaAlign<a class="anchor" aria-label="anchor" href="#metaalign"></a></h2>
       
-      <p class="section-desc"></p><p>Mapping sequencing reads to the target &amp; filter libraries.</p>
+      <p class="section-desc"></p><p>Align sequencing reads to indexed target genome sequences</p>
 
       
     </div><div id="" class="section level2">
@@ -124,26 +113,14 @@
         <dd>Align microbiome reads to a set of reference libraries</dd>
       </dl><dl><dt>
           
-          <code><a href="filter_host.html">filter_host()</a></code> 
-        </dt>
-        <dd>Use Rsubread to align reads against one or more filter libraries and
-subsequently remove mapped reads</dd>
-      </dl><dl><dt>
-          
-          <code><a href="align_details.html">align_details</a></code> 
-        </dt>
-        <dd>A universal parameter settings object for Rsubread alignment</dd>
-      </dl><dl><dt>
-          
           <code><a href="align_target_bowtie.html">align_target_bowtie()</a></code> 
         </dt>
         <dd>Align microbiome reads to set of indexed Bowtie2 libraries</dd>
       </dl><dl><dt>
           
-          <code><a href="filter_host_bowtie.html">filter_host_bowtie()</a></code> 
+          <code><a href="align_details.html">align_details</a></code> 
         </dt>
-        <dd>Use Rbowtie2 to align reads against one or more filter libraries and
-subsequently remove mapped reads</dd>
+        <dd>A universal parameter settings object for Rsubread alignment</dd>
       </dl><dl><dt>
           
           <code><a href="bt2_16S_params.html">bt2_16S_params</a></code> 
@@ -160,9 +137,32 @@ subsequently remove mapped reads</dd>
         </dt>
         <dd>A universal parameter object for Bowtie 2 metagenomic alignment where the host genome is thought to be absent from the reference database</dd>
       </dl></div><div class="section level2">
-      <h2 id="sequencing-read-identification">Sequencing Read Identification<a class="anchor" aria-label="anchor" href="#sequencing-read-identification"></a></h2>
+      <h2 id="metafilter">MetaFilter<a class="anchor" aria-label="anchor" href="#metafilter"></a></h2>
       
-      <p class="section-desc"></p><p>Identify which genomes are most likely to be represented in the sample.</p>
+      <p class="section-desc"></p><p>Remove reads mapped to indexed host genome sequences</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="filter_host.html">filter_host()</a></code> 
+        </dt>
+        <dd>Use Rsubread to align reads against one or more filter libraries and
+subsequently remove mapped reads</dd>
+      </dl><dl><dt>
+          
+          <code><a href="filter_host_bowtie.html">filter_host_bowtie()</a></code> 
+        </dt>
+        <dd>Use Rbowtie2 to align reads against one or more filter libraries and
+subsequently remove mapped reads</dd>
+      </dl></div><div class="section level2">
+      <h2 id="metaid">MetaID<a class="anchor" aria-label="anchor" href="#metaid"></a></h2>
+      
+      <p class="section-desc"></p><p>Reassign ambiguously mapped reads to probable source genome</p>
 
       
     </div><div id="" class="section level2">
@@ -176,9 +176,25 @@ subsequently remove mapped reads</dd>
         </dt>
         <dd>Identify which genomes are represented in a processed sample</dd>
       </dl></div><div class="section level2">
-      <h2 id="downstream-analysis-with-animalcules">Downstream Analysis with animalcules<a class="anchor" aria-label="anchor" href="#downstream-analysis-with-animalcules"></a></h2>
+      <h2 id="metablast">MetaBLAST<a class="anchor" aria-label="anchor" href="#metablast"></a></h2>
       
-      <p class="section-desc"></p><p>Convert MetaScope output to be compatible with the animalcules R package.</p>
+      <p class="section-desc"></p><p>BLAST assigned reads against the NCBI nucleotide database to check read identity.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="metascope_blast.html">metascope_blast()</a></code> 
+        </dt>
+        <dd>Blast reads from MetaScope aligned files</dd>
+      </dl></div><div class="section level2">
+      <h2 id="metacombine">MetaCombine<a class="anchor" aria-label="anchor" href="#metacombine"></a></h2>
+      
+      <p class="section-desc"></p><p>Aggregate samples into a MultiAssayExperiment compatible with the animalcules package</p>
 
       
     </div><div id="" class="section level2">
@@ -197,12 +213,13 @@ animalcules</dd>
           <code><a href="convert_animalcules_silva.html">convert_animalcules_silva()</a></code> 
         </dt>
         <dd>Create a multi-assay experiment from MetaScope output for usage with
-animalcules with the SILVA database</dd>
+animalcules with the SILVA 13_8 database</dd>
       </dl><dl><dt>
           
-          <code><a href="species_headers.html">species_headers</a></code> 
+          <code><a href="convert_animalcules_patho.html">convert_animalcules_patho()</a></code> 
         </dt>
-        <dd>An object containing species identifications for SILVA</dd>
+        <dd>Create a multi-assay experiment from PathoScope 2.0 output for usage with
+animalcules</dd>
       </dl></div><div class="section level2">
       <h2 id="helper-functions">Helper Functions<a class="anchor" aria-label="anchor" href="#helper-functions"></a></h2>
       
@@ -264,6 +281,31 @@ animalcules with the SILVA database</dd>
           <code><a href="check_samtools_exists.html">check_samtools_exists()</a></code> 
         </dt>
         <dd>Check if samtools exists on the system</dd>
+      </dl><dl><dt>
+          
+          <code><a href="blast_result_metrics.html">blast_result_metrics()</a></code> 
+        </dt>
+        <dd>Calculates result metrics from a blast results table</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_seqs.html">get_seqs()</a></code> 
+        </dt>
+        <dd>Gets sequences from bam file</dd>
+      </dl><dl><dt>
+          
+          <code><a href="rBLAST_single_result.html">rBLAST_single_result()</a></code> 
+        </dt>
+        <dd>rBLAST_single_result</dd>
+      </dl><dl><dt>
+          
+          <code><a href="rBlast_results.html">rBlast_results()</a></code> 
+        </dt>
+        <dd>rBlast_results</dd>
+      </dl><dl><dt>
+          
+          <code><a href="taxid_to_name.html">taxid_to_name()</a></code> 
+        </dt>
+        <dd>Converts NCBI taxonomy ID to scientific name</dd>
       </dl></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>

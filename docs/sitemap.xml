@@ -43,6 +43,9 @@
     <loc>https://wejlab.github.io/metascope-docs/reference/bam_reheader_R.html</loc>
   </url>
   <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/blast_result_metrics.html</loc>
+  </url>
+  <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/bt2_16S_params.html</loc>
   </url>
   <url>
@@ -59,6 +62,9 @@
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/convert_animalcules.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/convert_animalcules_patho.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/convert_animalcules_silva.html</loc>
@@ -88,6 +94,9 @@
     <loc>https://wejlab.github.io/metascope-docs/reference/get_children.html</loc>
   </url>
   <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/get_seqs.html</loc>
+  </url>
+  <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/index.html</loc>
   </url>
   <url>
@@ -95,6 +104,9 @@
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/merge_bam_files.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/metascope_blast.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/metascope_id.html</loc>
@@ -106,9 +118,18 @@
     <loc>https://wejlab.github.io/metascope-docs/reference/mk_subread_index.html</loc>
   </url>
   <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/rBLAST_single_result.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/rBlast_results.html</loc>
+  </url>
+  <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/remove_matches.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/species_headers.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/taxid_to_name.html</loc>
   </url>
 </urlset>
