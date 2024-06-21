@@ -10,10 +10,25 @@
     <loc>https://wejlab.github.io/metascope-docs/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://wejlab.github.io/metascope-docs/articles/MetaScopeTutorial.html</loc>
+  </url>
+  <url>
     <loc>https://wejlab.github.io/metascope-docs/articles/MetaScope_vignette.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/articles/SILVA.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/articles/docs/Example_Script.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/articles/docs/MetaBLAST.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/articles/docs/MetaScopeTutorial.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/articles/docs/SILVA.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/articles/index.html</loc>
@@ -46,6 +61,12 @@
     <loc>https://wejlab.github.io/metascope-docs/reference/blast_result_metrics.html</loc>
   </url>
   <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/blastn_results.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/blastn_single_result.html</loc>
+  </url>
+  <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/bt2_16S_params.html</loc>
   </url>
   <url>
@@ -53,6 +74,9 @@
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/bt2_regular_params.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/check_blastn_exists.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/check_samtools_exists.html</loc>
@@ -104,6 +128,9 @@
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/merge_bam_files.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/meta_demultiplex.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/metascope_blast.html</loc>

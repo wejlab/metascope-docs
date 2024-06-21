@@ -5,9 +5,7 @@ reference libraries. This function takes as input the name of the .bam file
 produced via align_target(), and produces a sorted .bam file with any
 reads that match the filter libraries removed. This resulting .bam file may
 be used upstream for further analysis. This function uses Rsubread. For the
-Rbowtie2 equivalent of this function, see filter_host_bowtie."><title>Use Rsubread to align reads against one or more filter libraries and
-subsequently remove mapped reads — filter_host • MetaScope</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Use Rsubread to align reads against one or more filter libraries and
-subsequently remove mapped reads — filter_host"><meta property="og:description" content="After aligning your sample to a target library with align_target(),
+Rbowtie2 equivalent of this function, see filter_host_bowtie."><title>Use Rsubread to align reads against one or more filter libraries and subsequently remove mapped reads — filter_host • MetaScope</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Use Rsubread to align reads against one or more filter libraries and subsequently remove mapped reads — filter_host"><meta property="og:description" content="After aligning your sample to a target library with align_target(),
 use filter_host() to remove unwelcome host contamination using filter
 reference libraries. This function takes as input the name of the .bam file
 produced via align_target(), and produces a sorted .bam file with any
@@ -20,11 +18,11 @@ Rbowtie2 equivalent of this function, see filter_host_bowtie."><!-- mathjax --><
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark" data-bs-theme="dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +37,9 @@ Rbowtie2 equivalent of this function, see filter_host_bowtie."><!-- mathjax --><
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-tutorials">Tutorials</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
     <a class="dropdown-item" href="../articles/MetaScope_vignette.html">Introduction to MetaScope</a>
+    <a class="dropdown-item" href="../articles/MetaScopeTutorial.html">Condensed MetaScope Tutorial</a>
     <a class="dropdown-item" href="../articles/SILVA.html">Usage with SILVA 16S Database</a>
+    <a class="dropdown-item" href="../articles/Example_Script.html">Example MetaScope Script</a>
   </div>
 </li>
 <li class="active nav-item">
@@ -64,8 +64,7 @@ Rbowtie2 equivalent of this function, see filter_host_bowtie."><!-- mathjax --><
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>Use Rsubread to align reads against one or more filter libraries and
-subsequently remove mapped reads</h1>
+      <img src="" class="logo" alt=""><h1>Use Rsubread to align reads against one or more filter libraries and subsequently remove mapped reads</h1>
       <small class="dont-index">Source: <a href="https://github.com/wejlab/MetaScope/blob/HEAD/R/filter_host.R" class="external-link"><code>R/filter_host.R</code></a></small>
       <div class="d-none name"><code>filter_host.Rd</code></div>
     </div>
@@ -196,7 +195,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span>             ====      \___ \| |  | |  _ &lt;|  _  /|  __|   / /\ \ | |  | |</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        Rsubread 2.14.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        Rsubread 2.18.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> //================================= setting ==================================\\</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
@@ -206,7 +205,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||          Repeat threshold : 100 repeats                                    ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||              Gapped index : no                                             ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||       Free / total memory : 238.7GB / 251.3GB                              ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||       Free / total memory : 231.8GB / 251.3GB                              ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||               Input files : 1 file in total                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                             o Staphylococcus_aureus_subsp._aureus_str._Newman.fasta.gz ||</span>
@@ -219,30 +218,30 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> || No format issues were found                                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Scan uninformative subreads in reference sequences ...                     ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Estimate the index size...                                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=3205.5k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=4450.9k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=5101.3k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=5515.4k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=5739.6k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=5951.2k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=6120.8k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=6244.4k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=6334.3k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=6402.7k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=6457.8k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=3978.4k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=5294.7k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=5960.1k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=6385.7k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=6654.2k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=6852.0k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=6996.6k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=7120.9k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=7213.5k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=7290.2k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=7361.7k bps/s                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || 3.0 GB of memory is needed for index building.                             ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Build the index...                                                         ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=357.5k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=646.5k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=885.3k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=1081.4k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=1253.0k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=1401.7k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=1527.1k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=1640.7k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=1738.2k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=1828.1k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=1908.2k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=517.4k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=905.9k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=1210.0k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=1456.0k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=1654.5k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=1820.1k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=1961.7k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=2085.2k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=2186.6k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=2279.5k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=2364.0k bps/s                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Save current index block...                                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 0.0% finished ]                                                         ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 10.0% finished ]                                                        ||</span>
@@ -257,7 +256,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 100.0% finished ]                                                       ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Total running time: 0.2 minutes.                      ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||Index /scratch/5213039.1.cbm.q/RtmppsQl1S/file3a82504c7bf59c/Staphyloc ... ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||Index /scratch/260630.1.ood/RtmpB7j73T/file2fa80f2fed7675/Staphylococc ... ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -289,7 +288,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span>             ====      \___ \| |  | |  _ &lt;|  _  /|  __|   / /\ \ | |  | |</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        Rsubread 2.14.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        Rsubread 2.18.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> //================================= setting ==================================\\</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
@@ -310,7 +309,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> //=============== Running (01-Mar-2024 22:26:20, pid=3834448) ================\\</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> //=============== Running (20-Jun-2024 21:31:20, pid=3123215) ================\\</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Check the input reads.                                                     ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || The input file contains base space reads.                                  ||</span>
@@ -337,12 +336,12 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                 Total reads : 1,050                                        ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Mapped : 930 (88.6%)                                  ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||             Uniquely mapped : 6                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||               Multi-mapping : 924                                          ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||             Uniquely mapped : 7                                            ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||               Multi-mapping : 923                                          ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                    Unmapped : 120                                          ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Indels : 107                                          ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Indels : 158                                          ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                     WARNING : Phred offset (64) incorrect?                 ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
@@ -363,11 +362,11 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Site created by Aubrey Odom.</p>
+  <p>Site created by Aubrey Odom.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
 </div>
 
     </footer></div>
