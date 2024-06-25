@@ -38,8 +38,8 @@ Rbowtie2 equivalent of this function, see filter_host_bowtie."><!-- mathjax --><
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
     <a class="dropdown-item" href="../articles/MetaScope_vignette.html">Introduction to MetaScope</a>
     <a class="dropdown-item" href="../articles/MetaScopeTutorial.html">Condensed MetaScope Tutorial</a>
-    <a class="dropdown-item" href="../articles/SILVA.html">Usage with SILVA 16S Database</a>
-    <a class="dropdown-item" href="../articles/Example_Script.html">Example MetaScope Script</a>
+    <a class="dropdown-item" href="../articles/docs/SILVA.html">Usage with SILVA 16S Database</a>
+    <a class="dropdown-item" href="../articles/docs/Example_Script.html">Example MetaScope Script</a>
   </div>
 </li>
 <li class="active nav-item">
@@ -205,7 +205,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||          Repeat threshold : 100 repeats                                    ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||              Gapped index : no                                             ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||       Free / total memory : 231.8GB / 251.3GB                              ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||       Free / total memory : 198.0GB / 251.3GB                              ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||               Input files : 1 file in total                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                             o Staphylococcus_aureus_subsp._aureus_str._Newman.fasta.gz ||</span>
@@ -218,30 +218,28 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> || No format issues were found                                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Scan uninformative subreads in reference sequences ...                     ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Estimate the index size...                                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=3978.4k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=5294.7k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=5960.1k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=6385.7k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=6654.2k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=6852.0k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=6996.6k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=7120.9k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=7213.5k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=7290.2k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=7361.7k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=3946.6k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=5305.1k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=5989.7k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=6859.2k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=7031.3k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=7143.5k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=7252.9k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=7335.4k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=7392.9k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=7442.8k bps/s                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || 3.0 GB of memory is needed for index building.                             ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Build the index...                                                         ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=517.4k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=905.9k bps/s                                 ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=1210.0k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   33%,   0 mins elapsed, rate=1456.0k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=1654.5k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=1820.1k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=1961.7k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=2085.2k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=2186.6k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=2279.5k bps/s                                ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=2364.0k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||    8%,   0 mins elapsed, rate=520.6k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   16%,   0 mins elapsed, rate=913.1k bps/s                                 ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   24%,   0 mins elapsed, rate=1221.5k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   41%,   0 mins elapsed, rate=1689.5k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   49%,   0 mins elapsed, rate=1855.9k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   58%,   0 mins elapsed, rate=1997.4k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   66%,   0 mins elapsed, rate=2120.2k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   74%,   0 mins elapsed, rate=2220.7k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   83%,   0 mins elapsed, rate=2311.3k bps/s                                ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||   91%,   0 mins elapsed, rate=2392.5k bps/s                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Save current index block...                                                ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 0.0% finished ]                                                         ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 10.0% finished ]                                                        ||</span>
@@ -256,7 +254,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||  [ 100.0% finished ]                                                       ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                      Total running time: 0.2 minutes.                      ||</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ||Index /scratch/260630.1.ood/RtmpB7j73T/file2fa80f2fed7675/Staphylococc ... ||</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ||Index /scratch/261666.1.ood/Rtmp4IgmVN/file3f4b0e7ecc02b/Staphylococcu ... ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -309,7 +307,7 @@ created more efficiently and is still compatible with <code><a href="metascope_i
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \\============================================================================//</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> //=============== Running (20-Jun-2024 21:31:20, pid=3123215) ================\\</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> //=============== Running (25-Jun-2024 14:00:38, pid=4147982) ================\\</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ||                                                                            ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || Check the input reads.                                                     ||</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> || The input file contains base space reads.                                  ||</span>

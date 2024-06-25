@@ -16,16 +16,10 @@
     <loc>https://wejlab.github.io/metascope-docs/articles/MetaScope_vignette.html</loc>
   </url>
   <url>
-    <loc>https://wejlab.github.io/metascope-docs/articles/SILVA.html</loc>
-  </url>
-  <url>
     <loc>https://wejlab.github.io/metascope-docs/articles/docs/Example_Script.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/articles/docs/MetaBLAST.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/articles/docs/MetaScopeTutorial.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/articles/docs/SILVA.html</loc>
@@ -97,9 +91,6 @@
     <loc>https://wejlab.github.io/metascope-docs/reference/count_matches.html</loc>
   </url>
   <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/demultiplex.html</loc>
-  </url>
-  <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/download_refseq.html</loc>
   </url>
   <url>
@@ -145,16 +136,7 @@
     <loc>https://wejlab.github.io/metascope-docs/reference/mk_subread_index.html</loc>
   </url>
   <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/rBLAST_single_result.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/rBlast_results.html</loc>
-  </url>
-  <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/remove_matches.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/species_headers.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/taxid_to_name.html</loc>
