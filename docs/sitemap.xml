@@ -40,6 +40,12 @@
     <loc>https://wejlab.github.io/metascope-docs/reference/MetaScope-package.html</loc>
   </url>
   <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/add_in_taxa.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/add_in_taxa_ncbi.html</loc>
+  </url>
+  <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/align_details.html</loc>
   </url>
   <url>
@@ -107,6 +113,9 @@
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/get_children.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/get_multi_seqs.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/get_seqs.html</loc>

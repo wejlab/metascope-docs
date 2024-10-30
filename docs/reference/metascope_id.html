@@ -18,7 +18,7 @@ library/.bam files use NCBI accession names for reference names (rnames in
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,7 +86,6 @@ library/.bam files use NCBI accession names for reference names (rnames in
 <span>  tmp_dir <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  convEM <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">10000</span>,</span>
 <span>  maxitsEM <span class="op">=</span> <span class="fl">25</span>,</span>
-<span>  q50 <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  update_bam <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  num_species_plot <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  blast_fastas <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -153,10 +152,6 @@ Required.</p></dd>
 the convEM is below the threshhold. Default set at <code>50</code>. If set at
 <code>0</code>, the algorithm skips the EM step and summarizes the .bam file 'as
 is'</p></dd>
-
-
-<dt>q50</dt>
-<dd><p>(inc.)</p></dd>
 
 
 <dt>update_bam</dt>
