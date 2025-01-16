@@ -42,8 +42,8 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-tutorials">Tutorials</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
     <a class="dropdown-item" href="../articles/MetaScope_vignette.html">Introduction to MetaScope</a>
-    <a class="dropdown-item" href="../articles/docs/SILVA.html">Usage with SILVA 16S Database</a>
-    <a class="dropdown-item" href="../articles/docs/Example_Script.html">Example MetaScope Script</a>
+    <a class="dropdown-item" href="../articles/vignette_docs/SILVA.html">Usage with SILVA 16S Database</a>
+    <a class="dropdown-item" href="../articles/vignette_docs/Example_Script.html">Example MetaScope Script</a>
   </div>
 </li>
 <li class="nav-item">
@@ -341,17 +341,17 @@ These genomes together will act as our target genome library.</p>
 <pre><code><span><span class="co">## Error in get(paste0(generic, ".", class), envir = get_method_env()) : </span></span>
 <span><span class="co">##   object 'type_sum.accel' not found</span></span></code></pre>
 <pre><code><span><span class="co">##                                                                       Staphylococcus aureus subsp. aureus Mu50 </span></span>
-<span><span class="co">##        "/scratch/306243.1.ood/RtmpUARBgV/file2ed76221d35a7f/Staphylococcus_aureus_subsp._aureus_Mu50.fasta.gz" </span></span>
+<span><span class="co">##        "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_subsp._aureus_Mu50.fasta.gz" </span></span>
 <span><span class="co">##                                                                        Staphylococcus aureus subsp. aureus Mu3 </span></span>
-<span><span class="co">##         "/scratch/306243.1.ood/RtmpUARBgV/file2ed76221d35a7f/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz" </span></span>
+<span><span class="co">##         "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz" </span></span>
 <span><span class="co">##                                                                Staphylococcus aureus subsp. aureus str. Newman </span></span>
-<span><span class="co">## "/scratch/306243.1.ood/RtmpUARBgV/file2ed76221d35a7f/Staphylococcus_aureus_subsp._aureus_str._Newman.fasta.gz" </span></span>
+<span><span class="co">## "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_subsp._aureus_str._Newman.fasta.gz" </span></span>
 <span><span class="co">##                                                                       Staphylococcus aureus subsp. aureus N315 </span></span>
-<span><span class="co">##        "/scratch/306243.1.ood/RtmpUARBgV/file2ed76221d35a7f/Staphylococcus_aureus_subsp._aureus_N315.fasta.gz" </span></span>
+<span><span class="co">##        "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_subsp._aureus_N315.fasta.gz" </span></span>
 <span><span class="co">##                                                                                    Staphylococcus aureus RF122 </span></span>
-<span><span class="co">##                     "/scratch/306243.1.ood/RtmpUARBgV/file2ed76221d35a7f/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
+<span><span class="co">##                     "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
 <span><span class="co">##                                                                      Staphylococcus aureus subsp. aureus ST398 </span></span>
-<span><span class="co">##       "/scratch/306243.1.ood/RtmpUARBgV/file2ed76221d35a7f/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz"</span></span></code></pre>
+<span><span class="co">##       "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz"</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="downloading-filter-genomes">Downloading filter genomes<a class="anchor" aria-label="anchor" href="#downloading-filter-genomes"></a>
@@ -375,7 +375,7 @@ downloaded in addition to the main genome.</li>
 <span>  compress <span class="op">=</span> <span class="cn">TRUE</span>, out_dir <span class="op">=</span> <span class="va">filter_ref_temp</span>,</span>
 <span>  caching <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  accession_path <span class="op">=</span> <span class="va">tmp_accession</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "/scratch/306243.1.ood/RtmpUARBgV/file2ed762c9ebe54/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/306263.1.ood/RtmpNeGtfj/file2693e610c4ed78/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="creating-indices-using-a-given-aligner">Creating indices using a given aligner<a class="anchor" aria-label="anchor" href="#creating-indices-using-a-given-aligner"></a>
@@ -409,7 +409,7 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span></code></pre>
 <pre><code><span><span class="co">## Index building complete</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/306243.1.ood/RtmpUARBgV/file2ed76242db1cf"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/306263.1.ood/RtmpNeGtfj/file2693e6558cbe67"</span></span></code></pre>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create filter index</span></span>
 <span><span class="fu"><a href="../reference/mk_bowtie_index.html">mk_bowtie_index</a></span><span class="op">(</span></span>
@@ -420,7 +420,7 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span>
 <span><span class="co">## Index building complete</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/306243.1.ood/RtmpUARBgV/file2ed76242db1cf"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/306263.1.ood/RtmpNeGtfj/file2693e6558cbe67"</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">
