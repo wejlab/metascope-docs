@@ -93,17 +93,44 @@ Odom</h4>
 </h2>
 <p>MetaScope is compatible with the SILVA 16S rRNA Database. At the time
 of writing, the <a href="https://www.arb-silva.de/" class="external-link">most recent
-update</a> to SILVA is version 138.1 (released on August 27, 2020).</p>
-<p><strong>Important</strong> If you want to use the
-<code><a href="../../reference/convert_animalcules_silva.html">convert_animalcules_silva()</a></code> step, you’ll need to use the
-premade Bowtie2 indices of SILVA 138.1 available <a href="https://drive.google.com/drive/folders/1dS60VcYHDbAObKSi_oGoQuf7XFOejaKj?usp=drive_link" class="external-link">here</a>.</p>
+update</a> to SILVA is version 138.1 (released on August 27, 2020).
+These notes will supplement the main MetaScope pipeline as illustrated
+in the <a href="https://wejlab.github.io/metascope-docs/articles/MetaScope_vignette.html">vignette</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="silva-indices">SILVA Indices<a class="anchor" aria-label="anchor" href="#silva-indices"></a>
+</h2>
+<p>Currently, MetaScope is only functional with SILVA when using the
+premade Bowtie2 indices of SILVA 138.1 available <a href="https://drive.google.com/drive/folders/1dS60VcYHDbAObKSi_oGoQuf7XFOejaKj?usp=drive_link" class="external-link">here</a>.
+In this case,</p>
+</div>
+<div class="section level2">
+<h2 id="accessions">Accessions<a class="anchor" aria-label="anchor" href="#accessions"></a>
+</h2>
+<p>Before running any samples, you’ll need to run
+<code><a href="../../reference/download_accessions.html">download_accessions()</a></code> with the argument
+<code>silva_taxonomy_database = TRUE</code>.</p>
+</div>
+<div class="section level2">
+<h2 id="alignment">Alignment<a class="anchor" aria-label="anchor" href="#alignment"></a>
+</h2>
 <p>You can follow the <code>align_target_bowtie</code> usage outlined in
 the MetaScope tutorial, replacing the <code>libs</code> parameter with
 the SILVA indices.</p>
+</div>
+<div class="section level2">
+<h2 id="identification">Identification<a class="anchor" aria-label="anchor" href="#identification"></a>
+</h2>
 <p>When you reach the <code><a href="../../reference/metascope_id.html">metascope_id()</a></code> step, you will need to
 include the parameter <code>db = "silva"</code> in the function call to
 identify down to the genus level using the SILVA taxonomy
 identifiers.</p>
+</div>
+<div class="section level2">
+<h2 id="metablast">MetaBLAST<a class="anchor" aria-label="anchor" href="#metablast"></a>
+</h2>
+<p>You can use <code><a href="../../reference/metascope_blast.html">metascope_blast()</a></code> to refine results from
+<code><a href="../../reference/metascope_id.html">metascope_id()</a></code>.</p>
 <p>All CSV outputs from <code><a href="../../reference/metascope_id.html">metascope_id()</a></code> can be compiled into
 a single MultiAssayExperiment object with the
 <code><a href="../../reference/convert_animalcules_silva.html">convert_animalcules_silva()</a></code> function as shown here with
