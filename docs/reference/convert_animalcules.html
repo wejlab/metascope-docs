@@ -20,7 +20,7 @@ the animalcules package."><!-- mathjax --><script src="https://cdnjs.cloudflare.
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,6 @@ the animalcules package."><!-- mathjax --><script src="https://cdnjs.cloudflare.
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-tutorials">Tutorials</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
     <a class="dropdown-item" href="../articles/MetaScope_vignette.html">Introduction to MetaScope</a>
-    <a class="dropdown-item" href="../articles/MetaScopeTutorial.html">Condensed MetaScope Tutorial</a>
     <a class="dropdown-item" href="../articles/docs/SILVA.html">Usage with SILVA 16S Database</a>
     <a class="dropdown-item" href="../articles/docs/Example_Script.html">Example MetaScope Script</a>
   </div>
@@ -85,8 +84,7 @@ the <code>animalcules</code> package.</p>
 <span>  end_string <span class="op">=</span> <span class="st">".metascope_id.csv"</span>,</span>
 <span>  qiime_biom_out <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  path_to_write <span class="op">=</span> <span class="st">"."</span>,</span>
-<span>  NCBI_key <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  num_tries <span class="op">=</span> <span class="fl">3</span></span>
+<span>  accession_path <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -133,14 +131,9 @@ files be written? Should be a character string of the folder path. Default is
 '.', i.e. the current working directory.</p></dd>
 
 
-<dt>NCBI_key</dt>
-<dd><p>(character) NCBI Entrez API key. optional. See
-taxize::use_entrez(). Due to the high number of requests made to NCBI, this
-function will be less prone to errors if you obtain an NCBI key.</p></dd>
-
-
-<dt>num_tries</dt>
-<dd><p>(numeric) Number of attempts to get UID.</p></dd>
+<dt>accession_path</dt>
+<dd><p>(character) Path to taxonomizr accessions. See
+<code><a href="https://rdrr.io/pkg/taxonomizr/man/prepareDatabase.html" class="external-link">taxonomizr::prepareDatabase()</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -194,30 +187,19 @@ function will be less prone to errors if you obtain an NCBI key.</p></dd>
 <span class="r-in"><span>  <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">annot_dat</span>,</span></span>
 <span class="r-in"><span>                   row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Create temporary taxonomizr accession</span></span></span>
+<span class="r-in"><span><span class="va">tmp_accession</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"example_accessions.sql"</span>, package <span class="op">=</span> <span class="st">"MetaScope"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Convert samples to MAE</span></span></span>
 <span class="r-in"><span><span class="va">outMAE</span> <span class="op">&lt;-</span> <span class="fu">convert_animalcules</span><span class="op">(</span>meta_counts <span class="op">=</span> <span class="va">out_files</span>,</span></span>
 <span class="r-in"><span>                              annot_path <span class="op">=</span> <span class="va">annot_dat</span>,</span></span>
 <span class="r-in"><span>                              which_annot_col <span class="op">=</span> <span class="st">"Sample"</span>,</span></span>
 <span class="r-in"><span>                              end_string <span class="op">=</span> <span class="st">".metascope_id.csv"</span>,</span></span>
 <span class="r-in"><span>                              qiime_biom_out <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>                              NCBI_key <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></span>
+<span class="r-in"><span>                              accession_path <span class="op">=</span> <span class="va">tmp_accession</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Looking up taxon UIDs in NCBI database</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                              |                                                                      |   0%</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                              |=======================                                               |  33%</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                              |===============================================                       |  67%</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                              |======================================================================| 100%</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">tempfolder</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

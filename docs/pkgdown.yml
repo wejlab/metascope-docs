@@ -2,12 +2,11 @@ pandoc: 3.1.11
 pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
-  Example_Script: docs/Example_Script.html
-  MetaBLAST: docs/MetaBLAST.html
+  Example_Script: vignette_docs/Example_Script.html
+  MetaBLAST: vignette_docs/MetaBLAST.html
   MetaScope_vignette: MetaScope_vignette.html
-  MetaScopeTutorial: MetaScopeTutorial.html
-  SILVA: docs/SILVA.html
-last_built: 2024-10-30T16:29Z
+  SILVA: vignette_docs/SILVA.html
+last_built: 2025-01-16T21:02Z
 urls:
   reference: https://wejlab.github.io/metascope-docs/reference
   article: https://wejlab.github.io/metascope-docs/articles

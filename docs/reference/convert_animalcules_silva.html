@@ -22,7 +22,7 @@ generated with the SILVA 13_8 database."><!-- mathjax --><script src="https://cd
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,6 @@ generated with the SILVA 13_8 database."><!-- mathjax --><script src="https://cd
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-tutorials">Tutorials</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
     <a class="dropdown-item" href="../articles/MetaScope_vignette.html">Introduction to MetaScope</a>
-    <a class="dropdown-item" href="../articles/MetaScopeTutorial.html">Condensed MetaScope Tutorial</a>
     <a class="dropdown-item" href="../articles/docs/SILVA.html">Usage with SILVA 16S Database</a>
     <a class="dropdown-item" href="../articles/docs/Example_Script.html">Example MetaScope Script</a>
   </div>
@@ -190,11 +189,11 @@ Default is <code>FALSE</code>.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Convert samples to MAE</span></span></span>
 <span class="r-in"><span><span class="va">outMAE</span> <span class="op">&lt;-</span> <span class="fu">convert_animalcules_silva</span><span class="op">(</span>meta_counts <span class="op">=</span> <span class="va">out_files</span>,</span></span>
-<span class="r-in"><span>                              annot_path <span class="op">=</span> <span class="va">annot_dat</span>,</span></span>
-<span class="r-in"><span>                              which_annot_col <span class="op">=</span> <span class="st">"Sample"</span>,</span></span>
-<span class="r-in"><span>                              end_string <span class="op">=</span> <span class="st">".metascope_id.csv"</span>,</span></span>
-<span class="r-in"><span>                              qiime_biom_out <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>                              caching <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span>                                    annot_path <span class="op">=</span> <span class="va">annot_dat</span>,</span></span>
+<span class="r-in"><span>                                    which_annot_col <span class="op">=</span> <span class="st">"Sample"</span>,</span></span>
+<span class="r-in"><span>                                    end_string <span class="op">=</span> <span class="st">".metascope_id.csv"</span>,</span></span>
+<span class="r-in"><span>                                    qiime_biom_out <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>                                    caching <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Registered S3 method overwritten by 'rmutil':</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   method         from</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   print.response httr</span>

@@ -20,7 +20,7 @@ genomes."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/ma
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,6 @@ genomes."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/ma
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-tutorials">Tutorials</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
     <a class="dropdown-item" href="../articles/MetaScope_vignette.html">Introduction to MetaScope</a>
-    <a class="dropdown-item" href="../articles/MetaScopeTutorial.html">Condensed MetaScope Tutorial</a>
     <a class="dropdown-item" href="../articles/docs/SILVA.html">Usage with SILVA 16S Database</a>
     <a class="dropdown-item" href="../articles/docs/Example_Script.html">Example MetaScope Script</a>
   </div>
@@ -163,10 +162,12 @@ by copying files to a new location before running the function.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#### Align example reads to an example reference library using Rbowtie2</span></span></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co">## Create temporary directory to store file</span></span></span>
 <span class="r-in"><span><span class="va">target_ref_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">target_ref_temp</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">tmp_accession</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"example_accessions.sql"</span>, package <span class="op">=</span> <span class="st">"MetaScope"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Dowload reference genome</span></span></span>
 <span class="r-in"><span><span class="fu">MetaScope</span><span class="fu">::</span><span class="fu"><a href="download_refseq.html">download_refseq</a></span><span class="op">(</span><span class="st">"Morbillivirus hominis"</span>,</span></span>
@@ -174,22 +175,10 @@ by copying files to a new location before running the function.</p>
 <span class="r-in"><span>                           representative <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
 <span class="r-in"><span>                           compress <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>                           out_dir <span class="op">=</span> <span class="va">target_ref_temp</span>,</span></span>
-<span class="r-in"><span>                           caching <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>                           caching <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>                           accession_path <span class="op">=</span> <span class="va">tmp_accession</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in value[[3L]](cond) : NCBI request not granted</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/290807.1.ood/RtmpsBpExV/file3b921a107be018/Morbillivirus_hominis.fasta.gz"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/306243.1.ood/RtmpTOIWT8/file2ea9e054dde387/Morbillivirus_hominis.fasta.gz"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Create temporary directory to store the indices</span></span></span>
 <span class="r-in"><span><span class="va">index_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span></span>
@@ -204,7 +193,7 @@ by copying files to a new location before running the function.</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Index building complete</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/290807.1.ood/RtmpsBpExV/file3b921a55a74d76"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/306243.1.ood/RtmpTOIWT8/file2ea9e07941f7b4"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Create temporary directory for final file</span></span></span>
 <span class="r-in"><span><span class="va">output_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span></span>
@@ -225,14 +214,14 @@ by copying files to a new location before running the function.</p>
 <span class="r-in"><span>    overwrite <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>    bowtie2_options <span class="op">=</span> <span class="st">"--very-sensitive-local"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Samtools found on system. Using samtools to create bam file"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Samtools not found on system. Using Rsamtools to create bam file"</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Remove extra folders</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">target_ref_temp</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">index_temp</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">output_temp</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

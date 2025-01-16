@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,6 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-tutorials">Tutorials</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
     <a class="dropdown-item" href="../articles/MetaScope_vignette.html">Introduction to MetaScope</a>
-    <a class="dropdown-item" href="../articles/MetaScopeTutorial.html">Condensed MetaScope Tutorial</a>
     <a class="dropdown-item" href="../articles/docs/SILVA.html">Usage with SILVA 16S Database</a>
     <a class="dropdown-item" href="../articles/docs/Example_Script.html">Example MetaScope Script</a>
   </div>
@@ -69,10 +68,10 @@
 <span>  <span class="va">which_result</span>,</span>
 <span>  num_reads <span class="op">=</span> <span class="fl">100</span>,</span>
 <span>  hit_list <span class="op">=</span> <span class="fl">10</span>,</span>
-<span>  num_threads <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  <span class="va">num_threads</span>,</span>
 <span>  <span class="va">db_path</span>,</span>
 <span>  <span class="va">quiet</span>,</span>
-<span>  <span class="va">accessions_path</span>,</span>
+<span>  <span class="va">accession_path</span>,</span>
 <span>  <span class="va">bam_seqs</span>,</span>
 <span>  <span class="va">out_path</span>,</span>
 <span>  <span class="va">sample_name</span>,</span>
@@ -116,8 +115,9 @@ Rsamtools::bamFile</p></dd>
 is FALSE.</p></dd>
 
 
-<dt>accessions_path</dt>
-<dd><p>Directory where accession files for blast are stored.</p></dd>
+<dt>accession_path</dt>
+<dd><p>(character) Filepath to NCBI accessions SQL
+database. See <code>taxonomzr::prepareDatabase()</code>.</p></dd>
 
 
 <dt>bam_seqs</dt>

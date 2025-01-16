@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,6 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-tutorials">Tutorials</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
     <a class="dropdown-item" href="../articles/MetaScope_vignette.html">Introduction to MetaScope</a>
-    <a class="dropdown-item" href="../articles/MetaScopeTutorial.html">Condensed MetaScope Tutorial</a>
     <a class="dropdown-item" href="../articles/docs/SILVA.html">Usage with SILVA 16S Database</a>
     <a class="dropdown-item" href="../articles/docs/Example_Script.html">Example MetaScope Script</a>
   </div>
@@ -99,7 +98,7 @@ of Medicine, Boston,
 MA<br><a class="author_email" href="mailto:#"></a><a href="mailto:wej@bu.edu" class="email">wej@bu.edu</a>
       </address>
                   
-            <h4 data-toc-skip class="date">October 30, 2024</h4>
+            <h4 data-toc-skip class="date">January 16, 2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/wejlab/MetaScope/blob/HEAD/vignettes/MetaScope_vignette.Rmd" class="external-link"><code>vignettes/MetaScope_vignette.Rmd</code></a></small>
       <div class="d-none name"><code>MetaScope_vignette.Rmd</code></div>
@@ -184,16 +183,6 @@ code:</p>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="entrez-key">Entrez key<a class="anchor" aria-label="anchor" href="#entrez-key"></a>
-</h3>
-<p>We highly recommend grabbing an Entrez key using the function
-<code><a href="https://docs.ropensci.org/taxize/reference/key_helpers.html" class="external-link">taxize::use_entrez()</a></code>. Then set your key as a global
-environment variable like so:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">NCBI_key</span> <span class="op">&lt;-</span> <span class="st">"&lt;Your key here&gt;"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"ENTREZ_KEY"</span> <span class="op">=</span> <span class="va">NCBI_key</span><span class="op">)</span></span></code></pre></div>
-</div>
 </div>
 <div class="section level2">
 <h2 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
@@ -237,7 +226,7 @@ your reads are multiplexed. The reads which we are currently trying to
 analyze are not multiplexed and therefore this step is skipped in our
 analysis. The example shown below is using different reads that are
 barcoded in order to show the utility of the function.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Get barcode, index, and read data locations</span></span>
 <span><span class="va">barcodePath</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"barcodes.txt"</span>, package <span class="op">=</span> <span class="st">"MetaScope"</span><span class="op">)</span></span>
@@ -256,7 +245,7 @@ barcoded in order to show the utility of the function.</p>
 <span>                   location <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Warning in XStringSet("DNA", x, start = start, end = end, width = width, :</span></span>
 <span><span class="co">## metadata columns on input DNAStringSet object were dropped</span></span></code></pre>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">demult</span></span></code></pre></div>
 <pre><code><span><span class="co">##   SampleName Barcode NumberOfReads</span></span>
 <span><span class="co">## 1        CDV TCCACGT            25</span></span>
@@ -292,6 +281,41 @@ RefSeq reference genomes, or both the reference and representative
 genomes. The compress option then allows users to specify whether to
 compress the output FASTA file; this is done by default.</p>
 <div class="section level3">
+<h3 id="creating-a-taxonomy-database">Creating a Taxonomy Database<a class="anchor" aria-label="anchor" href="#creating-a-taxonomy-database"></a>
+</h3>
+<p>A reference of taxonomy reference identifiers (e.g. NCBI accessions)
+is critical for fully identifying microbes with the MetaScope pipeline.
+This step should be completed ONCE, PRIOR TO RUNNING ANY AND ALL SAMPLES
+with the <code><a href="../reference/download_accessions.html">download_accessions()</a></code> function. For an example of
+how to make a typical database for all host and filter genomes in your
+sample, please see the <a href="https://wejlab.github.io/metascope-docs/articles/docs/Example_Script.html">example
+script</a> on our website.</p>
+<p>If using the SILVA 16S database, NCBI nucleotide or RefSeq database,
+or NCBI BLAST 16S database, you can use
+<code><a href="../reference/download_accessions.html">download_accessions()</a></code> with the following arguments:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/download_accessions.html">download_accessions</a></span><span class="op">(</span></span>
+<span>  ind_dir <span class="op">=</span> <span class="st">"C:/Users/JohnSmith/ResearchIndices"</span>,</span>
+<span>  tmp_dir <span class="op">=</span> <span class="fu">file_path</span><span class="op">(</span><span class="va">ind_dir</span>, <span class="st">"tmp"</span><span class="op">)</span>,</span>
+<span>  remove_tmp_dir <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>  <span class="co"># For NCBI RefSeq or nucleotide database</span></span>
+<span>  NCBI_accessions_database <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  NCBI_accessions_name <span class="op">=</span> <span class="st">"accessionTaxa.sql"</span>,</span>
+<span>  <span class="co"># For SILVA 16S database</span></span>
+<span>  silva_taxonomy_database <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  silva_taxonomy_name <span class="op">=</span> <span class="st">"all_silva_headers.rds"</span>,</span>
+<span>  <span class="co"># For BLAST 16S database</span></span>
+<span>  blast_16S_database <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  blast_16S_name <span class="op">=</span> <span class="st">"16S_ribosomal_RNA"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>However, for this vignette, we know in advance precisely which
+genomes and strains we will be testing. Therefore, we will generate a
+small subdatabase of taxonomizr references. We do not need to use
+<code><a href="../reference/download_accessions.html">download_accessions()</a></code> in this case.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tmp_accession</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,<span class="st">"example_accessions.sql"</span>, package <span class="op">=</span> <span class="st">"MetaScope"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
 <h3 id="downloading-target-genomes">Downloading target genomes<a class="anchor" aria-label="anchor" href="#downloading-target-genomes"></a>
 </h3>
 <p>Even though in this scenario we know exactly from where the reads in
@@ -301,7 +325,7 @@ code, we will download the genome of the <em>Staphylococcus aureus</em>
 RF122 strain along with the genomes of a few other closely related
 <em>Staphylococcus aureus</em> strains from the NCBI RefSeq database.
 These genomes together will act as our target genome library.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">target_ref_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">target_ref_temp</span><span class="op">)</span></span>
 <span></span>
@@ -309,22 +333,25 @@ These genomes together will act as our target genome library.</p>
 <span>                 <span class="st">"Staphylococcus aureus subsp. aureus Mu3"</span>,</span>
 <span>                 <span class="st">"Staphylococcus aureus subsp. aureus str. Newman"</span>,</span>
 <span>                 <span class="st">"Staphylococcus aureus subsp. aureus N315"</span>,</span>
-<span>                 <span class="st">"Staphylococcus aureus RF122"</span>, <span class="st">"Staphylococcus aureus subsp. aureus ST398"</span><span class="op">)</span></span>
+<span>                 <span class="st">"Staphylococcus aureus RF122"</span>, </span>
+<span>                 <span class="st">"Staphylococcus aureus subsp. aureus ST398"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">all_species</span>, <span class="va">download_refseq</span>, </span>
 <span>       reference <span class="op">=</span> <span class="cn">FALSE</span>, representative <span class="op">=</span> <span class="cn">FALSE</span>, compress <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>       out_dir <span class="op">=</span> <span class="va">target_ref_temp</span>, caching <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span>       out_dir <span class="op">=</span> <span class="va">target_ref_temp</span>, caching <span class="op">=</span> <span class="cn">TRUE</span>, accession_path <span class="op">=</span> <span class="va">tmp_accession</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Error in get(paste0(generic, ".", class), envir = get_method_env()) : </span></span>
+<span><span class="co">##   object 'type_sum.accel' not found</span></span></code></pre>
 <pre><code><span><span class="co">##                                                                       Staphylococcus aureus subsp. aureus Mu50 </span></span>
-<span><span class="co">##        "/scratch/290807.1.ood/RtmpBNysHC/file3b99fc5430035f/Staphylococcus_aureus_subsp._aureus_Mu50.fasta.gz" </span></span>
+<span><span class="co">##        "/scratch/306243.1.ood/RtmpjR4Oqx/file2eb90d61faca51/Staphylococcus_aureus_subsp._aureus_Mu50.fasta.gz" </span></span>
 <span><span class="co">##                                                                        Staphylococcus aureus subsp. aureus Mu3 </span></span>
-<span><span class="co">##         "/scratch/290807.1.ood/RtmpBNysHC/file3b99fc5430035f/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz" </span></span>
+<span><span class="co">##         "/scratch/306243.1.ood/RtmpjR4Oqx/file2eb90d61faca51/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz" </span></span>
 <span><span class="co">##                                                                Staphylococcus aureus subsp. aureus str. Newman </span></span>
-<span><span class="co">## "/scratch/290807.1.ood/RtmpBNysHC/file3b99fc5430035f/Staphylococcus_aureus_subsp._aureus_str._Newman.fasta.gz" </span></span>
+<span><span class="co">## "/scratch/306243.1.ood/RtmpjR4Oqx/file2eb90d61faca51/Staphylococcus_aureus_subsp._aureus_str._Newman.fasta.gz" </span></span>
 <span><span class="co">##                                                                       Staphylococcus aureus subsp. aureus N315 </span></span>
-<span><span class="co">##        "/scratch/290807.1.ood/RtmpBNysHC/file3b99fc5430035f/Staphylococcus_aureus_subsp._aureus_N315.fasta.gz" </span></span>
+<span><span class="co">##        "/scratch/306243.1.ood/RtmpjR4Oqx/file2eb90d61faca51/Staphylococcus_aureus_subsp._aureus_N315.fasta.gz" </span></span>
 <span><span class="co">##                                                                                    Staphylococcus aureus RF122 </span></span>
-<span><span class="co">##                     "/scratch/290807.1.ood/RtmpBNysHC/file3b99fc5430035f/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
+<span><span class="co">##                     "/scratch/306243.1.ood/RtmpjR4Oqx/file2eb90d61faca51/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
 <span><span class="co">##                                                                      Staphylococcus aureus subsp. aureus ST398 </span></span>
-<span><span class="co">##       "/scratch/290807.1.ood/RtmpBNysHC/file3b99fc5430035f/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz"</span></span></code></pre>
+<span><span class="co">##       "/scratch/306243.1.ood/RtmpjR4Oqx/file2eb90d61faca51/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz"</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="downloading-filter-genomes">Downloading filter genomes<a class="anchor" aria-label="anchor" href="#downloading-filter-genomes"></a>
@@ -338,7 +365,7 @@ act as our filter library.</p>
 representative and reference = FALSE, several sequences will be
 downloaded in addition to the main genome.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">filter_ref_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">filter_ref_temp</span><span class="op">)</span></span>
 <span></span>
@@ -346,8 +373,9 @@ downloaded in addition to the main genome.</li>
 <span>  taxon <span class="op">=</span> <span class="st">"Staphylococcus epidermidis RP62A"</span>,</span>
 <span>  representative <span class="op">=</span> <span class="cn">FALSE</span>, reference <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  compress <span class="op">=</span> <span class="cn">TRUE</span>, out_dir <span class="op">=</span> <span class="va">filter_ref_temp</span>,</span>
-<span>  caching <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "/scratch/290807.1.ood/RtmpBNysHC/file3b99fc25755482/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
+<span>  caching <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  accession_path <span class="op">=</span> <span class="va">tmp_accession</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## [1] "/scratch/306243.1.ood/RtmpjR4Oqx/file2eb90d3e432bf9/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="creating-indices-using-a-given-aligner">Creating indices using a given aligner<a class="anchor" aria-label="anchor" href="#creating-indices-using-a-given-aligner"></a>
@@ -367,7 +395,7 @@ create either small (.bt2) or large (.bt2l) Bowtie2 indexes.</p>
 step have been combined and renamed to target.fasta and filter.fasta
 respectively for convenience. These are the files from which the Bowtie2
 indexes will be made from.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create temp directory to store the Bowtie2 indices</span></span>
 <span><span class="va">index_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">index_temp</span><span class="op">)</span></span>
@@ -381,8 +409,8 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span></code></pre>
 <pre><code><span><span class="co">## Index building complete</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/290807.1.ood/RtmpBNysHC/file3b99fc4fc2142d"</span></span></code></pre>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<pre><code><span><span class="co">## [1] "/scratch/306243.1.ood/RtmpjR4Oqx/file2eb90d710b2343"</span></span></code></pre>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create filter index</span></span>
 <span><span class="fu"><a href="../reference/mk_bowtie_index.html">mk_bowtie_index</a></span><span class="op">(</span></span>
 <span>  ref_dir <span class="op">=</span> <span class="va">filter_ref_temp</span>,</span>
@@ -392,7 +420,7 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span>
 <span><span class="co">## Index building complete</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/290807.1.ood/RtmpBNysHC/file3b99fc4fc2142d"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/306243.1.ood/RtmpjR4Oqx/file2eb90d710b2343"</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -433,7 +461,7 @@ alignment parameters, but users can provide their own Bowtie 2 alignment
 settings if desired.</p>
 <p>We will now align the sample reads (reads.fastq) to the target
 reference genomes using the Bowtie 2 indexes that we just built.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a temp directory to store output bam file</span></span>
 <span><span class="va">output_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">output_temp</span><span class="op">)</span></span>
@@ -452,7 +480,7 @@ reference genomes using the Bowtie 2 indexes that we just built.</p>
 <span>    align_file <span class="op">=</span> <span class="st">"bowtie_target"</span>,</span>
 <span>    overwrite <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "Samtools found on system. Using samtools to create bam file"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "Samtools not found on system. Using Rsamtools to create bam file"</span></span></code></pre>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span></code></pre>
 </div>
 <div class="section level3">
@@ -471,7 +499,7 @@ where the indexes are stored, and the names of the filter indexes to
 align against, to produce a sorted BAM file with any reads that match
 the filter libraries removed. We will then use this final BAM file
 downstream for further analysis.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">final_map</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="../reference/filter_host_bowtie.html">filter_host_bowtie</a></span><span class="op">(</span></span>
 <span>    reads_bam <span class="op">=</span> <span class="va">target_map</span>,</span>
@@ -484,7 +512,7 @@ downstream for further analysis.</p>
 <span>    threads <span class="op">=</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%</span></span>
-<span><span class="co">## [1] "Samtools found on system. Using samtools to create bam file"</span></span></code></pre>
+<span><span class="co">## [1] "Samtools not found on system. Using Rsamtools to create bam file"</span></span></code></pre>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span></code></pre>
 </div>
 <div class="section level3">
@@ -507,7 +535,7 @@ alignments to the other <em>S. aureus</em> strains which are incorrect.
 If we were to stop the analysis at this point, we could potentially be
 lead to believe that our sample has increased microbial diversity, when
 it actually does not.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bamFile</span> <span class="op">&lt;-</span> <span class="fu">Rsamtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rsamtools/man/BamFile-class.html" class="external-link">BamFile</a></span><span class="op">(</span><span class="va">final_map</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">param</span> <span class="op">&lt;-</span></span>
@@ -518,21 +546,9 @@ it actually does not.</p>
 <span></span>
 <span><span class="va">aln</span> <span class="op">&lt;-</span> <span class="fu">Rsamtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rsamtools/man/scanBam.html" class="external-link">scanBam</a></span><span class="op">(</span><span class="va">bamFile</span>, param <span class="op">=</span> <span class="va">param</span><span class="op">)</span></span>
 <span><span class="va">accession_all</span> <span class="op">&lt;-</span> <span class="va">aln</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">rname</span></span>
-<span><span class="va">unique_accession_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">accession_all</span><span class="op">)</span></span>
-<span><span class="va">accession_all_inds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/match.html" class="external-link">match</a></span><span class="op">(</span><span class="va">accession_all</span>, <span class="va">unique_accession_all</span><span class="op">)</span></span>
-<span><span class="va">unique_accession_genome_name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressMessages</a></span><span class="op">(</span></span>
-<span>  <span class="fu">taxize</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/taxize/reference/genbank2uid.html" class="external-link">genbank2uid</a></span><span class="op">(</span><span class="va">unique_accession_all</span>,</span>
-<span>                      batch_size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">unique_accession_all</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"name"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="va">unique_accession_genome_name</span><span class="op">[</span><span class="va">accession_all_inds</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">',.*'</span>, <span class="st">''</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(ST398).*"</span>, <span class="st">"\\1"</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(N315).*"</span>, <span class="st">"\\1"</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(Newman).*"</span>, <span class="st">"\\1"</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(Mu3).*"</span>, <span class="st">"\\1"</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(Mu50).*"</span>, <span class="st">"\\1"</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(RF122).*"</span>, <span class="st">"\\1"</span>, <span class="va">.</span><span class="op">)</span></span>
+<span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="va">accession_all</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">taxonomizr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/taxonomizr/man/accessionToTaxa.html" class="external-link">accessionToTaxa</a></span><span class="op">(</span><span class="va">tmp_accession</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">taxonomizr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/taxonomizr/man/getTaxonomy.html" class="external-link">getTaxonomy</a></span><span class="op">(</span>sqlFile <span class="op">=</span> <span class="va">tmp_accession</span>, desiredTaxa <span class="op">=</span> <span class="st">"strain"</span><span class="op">)</span></span>
 <span><span class="va">read_count_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">genome_name_all</span><span class="op">)</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span></span>
 <span>  <span class="va">read_count_table</span>,</span>
@@ -560,12 +576,8 @@ it actually does not.</p>
 <td align="right">47</td>
 </tr>
 <tr class="odd">
-<td align="left">Staphylococcus aureus subsp. aureus N315</td>
-<td align="right">22</td>
-</tr>
-<tr class="even">
 <td align="left">Staphylococcus aureus subsp. aureus Mu50</td>
-<td align="right">18</td>
+<td align="right">40</td>
 </tr>
 </tbody>
 </table>
@@ -575,7 +587,7 @@ maps to multiple different genomes. We can see that the majority of our
 secondary alignments are to the other Staphylococcus aureus strains,
 which makes sense considering that the majority of the primary
 alignments were to the correct Staphylococcus aureus RF122 strain.</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bamFile</span> <span class="op">&lt;-</span> <span class="fu">Rsamtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rsamtools/man/BamFile-class.html" class="external-link">BamFile</a></span><span class="op">(</span><span class="va">final_map</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">param</span> <span class="op">&lt;-</span></span>
@@ -586,23 +598,9 @@ alignments were to the correct Staphylococcus aureus RF122 strain.</p>
 <span></span>
 <span><span class="va">aln</span> <span class="op">&lt;-</span> <span class="fu">Rsamtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rsamtools/man/scanBam.html" class="external-link">scanBam</a></span><span class="op">(</span><span class="va">bamFile</span>, param <span class="op">=</span> <span class="va">param</span><span class="op">)</span></span>
 <span><span class="va">accession_all</span> <span class="op">&lt;-</span> <span class="va">aln</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">rname</span></span>
-<span><span class="va">unique_accession_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">accession_all</span><span class="op">)</span></span>
-<span><span class="va">accession_all_inds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/match.html" class="external-link">match</a></span><span class="op">(</span><span class="va">accession_all</span>, <span class="va">unique_accession_all</span><span class="op">)</span></span>
-<span><span class="va">unique_accession_taxid</span> <span class="op">&lt;-</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressMessages</a></span><span class="op">(</span></span>
-<span>    <span class="fu">taxize</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/taxize/reference/genbank2uid.html" class="external-link">genbank2uid</a></span><span class="op">(</span><span class="va">unique_accession_all</span>,</span>
-<span>                        batch_size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">unique_accession_all</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">unique_accession_genome_name</span> <span class="op">&lt;-</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply</a></span><span class="op">(</span><span class="va">unique_accession_taxid</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"name"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="va">unique_accession_genome_name</span><span class="op">[</span><span class="va">accession_all_inds</span><span class="op">]</span></span>
-<span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">',.*'</span>, <span class="st">''</span>, <span class="va">genome_name_all</span><span class="op">)</span></span>
-<span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(ST398).*"</span>, <span class="st">"\\1"</span>, <span class="va">genome_name_all</span><span class="op">)</span></span>
-<span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(N315).*"</span>, <span class="st">"\\1"</span>, <span class="va">genome_name_all</span><span class="op">)</span></span>
-<span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(Newman).*"</span>, <span class="st">"\\1"</span>, <span class="va">genome_name_all</span><span class="op">)</span></span>
-<span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(Mu3).*"</span>, <span class="st">"\\1"</span>, <span class="va">genome_name_all</span><span class="op">)</span></span>
-<span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(Mu50).*"</span>, <span class="st">"\\1"</span>, <span class="va">genome_name_all</span><span class="op">)</span></span>
-<span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"(RF122).*"</span>, <span class="st">"\\1"</span>, <span class="va">genome_name_all</span><span class="op">)</span></span>
+<span><span class="va">genome_name_all</span> <span class="op">&lt;-</span> <span class="va">accession_all</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">taxonomizr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/taxonomizr/man/accessionToTaxa.html" class="external-link">accessionToTaxa</a></span><span class="op">(</span><span class="va">tmp_accession</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">taxonomizr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/taxonomizr/man/getTaxonomy.html" class="external-link">getTaxonomy</a></span><span class="op">(</span>sqlFile <span class="op">=</span> <span class="va">tmp_accession</span>, desiredTaxa <span class="op">=</span> <span class="st">"strain"</span><span class="op">)</span></span>
 <span><span class="va">read_count_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">genome_name_all</span><span class="op">)</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span></span>
 <span>  <span class="va">read_count_table</span>,</span>
@@ -627,13 +625,9 @@ alignments were to the correct Staphylococcus aureus RF122 strain.</p>
 </tr>
 <tr class="even">
 <td align="left">Staphylococcus aureus subsp. aureus Mu50</td>
-<td align="right">270</td>
+<td align="right">505</td>
 </tr>
 <tr class="odd">
-<td align="left">Staphylococcus aureus subsp. aureus N315</td>
-<td align="right">235</td>
-</tr>
-<tr class="even">
 <td align="left">Staphylococcus aureus RF122</td>
 <td align="right">90</td>
 </tr>
@@ -658,13 +652,14 @@ taxonomy and genome names, reduces the mapping ambiguity using a mixture
 model, and outputs a .csv file with the results. Currently, it assumes
 that the genome library/.bam files use NCBI accession names for
 reference names.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metascope_id.html">metascope_id</a></span><span class="op">(</span></span>
 <span>  <span class="va">final_map</span>,</span>
 <span>  input_type <span class="op">=</span> <span class="st">"bam"</span>,</span>
 <span>  <span class="co"># change input_type to "csv.gz" when not creating a BAM</span></span>
 <span>  aligner <span class="op">=</span> <span class="st">"bowtie2"</span>,</span>
-<span>  num_species_plot <span class="op">=</span> <span class="fl">0</span></span>
+<span>  num_species_plot <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  accession_path <span class="op">=</span> <span class="va">tmp_accession</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">output</span>,</span>
@@ -701,7 +696,8 @@ EMProportion
 273036
 </td>
 <td style="text-align:left;">
-Staphylococcus aureus RF122, complete sequence
+Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;Staphylococcus
+aureus;Staphylococcus aureus RF122
 </td>
 <td style="text-align:right;">
 865
@@ -721,7 +717,8 @@ Staphylococcus aureus RF122, complete sequence
 418127
 </td>
 <td style="text-align:left;">
-Staphylococcus aureus subsp. aureus Mu3, complete sequence
+Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;Staphylococcus
+aureus;Staphylococcus aureus subsp. aureus Mu3
 </td>
 <td style="text-align:right;">
 114
@@ -741,7 +738,8 @@ Staphylococcus aureus subsp. aureus Mu3, complete sequence
 426430
 </td>
 <td style="text-align:left;">
-Staphylococcus aureus subsp. aureus str. Newman, complete sequence
+Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;Staphylococcus
+aureus;Staphylococcus aureus subsp. aureus str. Newman
 </td>
 <td style="text-align:right;">
 12
@@ -764,7 +762,7 @@ the CSV file produced by the <code><a href="../reference/metascope_id.html">meta
 function.</strong></p>
 <p>We will now look at the read reassignment results reported in the
 output CSV file.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">relevant_col</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">dirname</a></span><span class="op">(</span><span class="va">final_map</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"bowtie_target.metascope_id.csv"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fl">2</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
@@ -781,9 +779,9 @@ output CSV file.</p>
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
-<col width="68%">
-<col width="15%">
-<col width="15%">
+<col width="86%">
+<col width="6%">
+<col width="6%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">Genome</th>
@@ -792,23 +790,26 @@ output CSV file.</p>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">Staphylococcus aureus RF122</td>
+<td align="left">Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;Staphylococcus
+aureus;Staphylococcus aureus RF122</td>
 <td align="right">865</td>
 <td align="right">0.8728557</td>
 </tr>
 <tr class="even">
-<td align="left">Staphylococcus aureus subsp. aureus Mu3</td>
+<td align="left">Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;Staphylococcus
+aureus;Staphylococcus aureus subsp. aureus Mu3</td>
 <td align="right">114</td>
 <td align="right">0.1150353</td>
 </tr>
 <tr class="odd">
-<td align="left">Staphylococcus aureus subsp. aureus str. Newman</td>
+<td align="left">Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;Staphylococcus
+aureus;Staphylococcus aureus subsp. aureus str. Newman</td>
 <td align="right">12</td>
 <td align="right">0.0121090</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="st">".bowtie2.cerr.txt"</span><span class="op">)</span></span></code></pre></div>
 <p>We can see that the read reassignment function has reassigned the
 majority of the ambiguous alignments back to the <em>Staphylococcus
@@ -817,7 +818,7 @@ aureus</em> RF122 strain, the correct strain of origin.</p>
 <div class="section level2">
 <h2 id="session-info">Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
 </h2>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## R version 4.4.0 (2024-04-24)</span></span>
 <span><span class="co">## Platform: x86_64-pc-linux-gnu</span></span>
@@ -841,40 +842,35 @@ aureus</em> RF122 strain, the correct strain of origin.</p>
 <span><span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## other attached packages:</span></span>
-<span><span class="co">## [1] magrittr_2.0.3   MetaScope_1.7.0  BiocStyle_2.32.1</span></span>
+<span><span class="co">## [1] magrittr_2.0.3   MetaScope_1.7.2  BiocStyle_2.32.1</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## loaded via a namespace (and not attached):</span></span>
-<span><span class="co">##  [1] tidyselect_1.2.1        dplyr_1.1.4             blob_1.2.4             </span></span>
-<span><span class="co">##  [4] bitops_1.0-9            urltools_1.7.3          filelock_1.0.3         </span></span>
-<span><span class="co">##  [7] Biostrings_2.72.1       fastmap_1.2.0           BiocFileCache_2.12.0   </span></span>
-<span><span class="co">## [10] digest_0.6.37           lifecycle_1.0.4         RSQLite_2.3.7          </span></span>
-<span><span class="co">## [13] compiler_4.4.0          rlang_1.1.4             sass_0.4.9             </span></span>
-<span><span class="co">## [16] tools_4.4.0             utf8_1.2.4              yaml_2.3.10            </span></span>
-<span><span class="co">## [19] data.table_1.16.0       knitr_1.48              conditionz_0.1.0       </span></span>
-<span><span class="co">## [22] htmlwidgets_1.6.4       bit_4.5.0               curl_5.2.3             </span></span>
-<span><span class="co">## [25] xml2_1.3.6              BiocParallel_1.38.0     httpcode_0.3.0         </span></span>
-<span><span class="co">## [28] withr_3.0.1             purrr_1.0.2             BiocGenerics_0.50.0    </span></span>
-<span><span class="co">## [31] desc_1.4.3              triebeard_0.4.1         grid_4.4.0             </span></span>
-<span><span class="co">## [34] stats4_4.4.0            fansi_1.0.6             iterators_1.0.14       </span></span>
-<span><span class="co">## [37] crul_1.5.0              taxize_0.9.100.1        cli_3.6.3              </span></span>
-<span><span class="co">## [40] rmarkdown_2.28          crayon_1.5.3            ragg_1.3.0             </span></span>
-<span><span class="co">## [43] generics_0.1.3          rstudioapi_0.16.0       httr_1.4.7             </span></span>
-<span><span class="co">## [46] DBI_1.2.3               ape_5.8                 cachem_1.1.0           </span></span>
-<span><span class="co">## [49] stringr_1.5.1           zlibbioc_1.50.0         parallel_4.4.0         </span></span>
-<span><span class="co">## [52] BiocManager_1.30.22     XVector_0.44.0          vctrs_0.6.5            </span></span>
-<span><span class="co">## [55] Matrix_1.7-0            jsonlite_1.8.9          bookdown_0.39          </span></span>
-<span><span class="co">## [58] IRanges_2.38.1          S4Vectors_0.42.1        bit64_4.5.2            </span></span>
-<span><span class="co">## [61] systemfonts_1.0.6       foreach_1.5.2           jquerylib_0.1.4        </span></span>
-<span><span class="co">## [64] glue_1.8.0              Rbowtie2_2.10.0         pkgdown_2.0.9          </span></span>
-<span><span class="co">## [67] codetools_0.2-20        stringi_1.8.4           GenomeInfoDb_1.40.1    </span></span>
-<span><span class="co">## [70] GenomicRanges_1.56.1    UCSC.utils_1.0.0        tibble_3.2.1           </span></span>
-<span><span class="co">## [73] pillar_1.9.0            htmltools_0.5.8.1       GenomeInfoDbData_1.2.12</span></span>
-<span><span class="co">## [76] R6_2.5.1                dbplyr_2.5.0            textshaping_0.3.7      </span></span>
-<span><span class="co">## [79] evaluate_1.0.0          lattice_0.22-6          highr_0.11             </span></span>
-<span><span class="co">## [82] Rsamtools_2.20.0        memoise_2.0.1           bslib_0.8.0            </span></span>
-<span><span class="co">## [85] Rcpp_1.0.13             uuid_1.2-1              nlme_3.1-164           </span></span>
-<span><span class="co">## [88] xfun_0.45               fs_1.6.4                zoo_1.8-12             </span></span>
-<span><span class="co">## [91] pkgconfig_2.0.3</span></span></code></pre>
+<span><span class="co">##  [1] xfun_0.45               bslib_0.8.0             htmlwidgets_1.6.4      </span></span>
+<span><span class="co">##  [4] lattice_0.22-6          bitops_1.0-9            vctrs_0.6.5            </span></span>
+<span><span class="co">##  [7] tools_4.4.0             generics_0.1.3          parallel_4.4.0         </span></span>
+<span><span class="co">## [10] stats4_4.4.0            curl_5.2.3              tibble_3.2.1           </span></span>
+<span><span class="co">## [13] RSQLite_2.3.9           highr_0.11              blob_1.2.4             </span></span>
+<span><span class="co">## [16] pkgconfig_2.0.3         Matrix_1.7-0            data.table_1.16.4      </span></span>
+<span><span class="co">## [19] dbplyr_2.5.0            desc_1.4.3              S4Vectors_0.42.1       </span></span>
+<span><span class="co">## [22] lifecycle_1.0.4         GenomeInfoDbData_1.2.12 compiler_4.4.0         </span></span>
+<span><span class="co">## [25] stringr_1.5.1           Rsamtools_2.20.0        textshaping_0.3.7      </span></span>
+<span><span class="co">## [28] Biostrings_2.72.1       codetools_0.2-20        GenomeInfoDb_1.40.1    </span></span>
+<span><span class="co">## [31] htmltools_0.5.8.1       sass_0.4.9              yaml_2.3.10            </span></span>
+<span><span class="co">## [34] pillar_1.10.0           pkgdown_2.0.9           crayon_1.5.3           </span></span>
+<span><span class="co">## [37] jquerylib_0.1.4         BiocParallel_1.38.0     cachem_1.1.0           </span></span>
+<span><span class="co">## [40] taxonomizr_0.10.6       tidyselect_1.2.1        digest_0.6.37          </span></span>
+<span><span class="co">## [43] stringi_1.8.4           dplyr_1.1.4             purrr_1.0.2            </span></span>
+<span><span class="co">## [46] bookdown_0.39           grid_4.4.0              fastmap_1.2.0          </span></span>
+<span><span class="co">## [49] cli_3.6.3               withr_3.0.2             filelock_1.0.3         </span></span>
+<span><span class="co">## [52] UCSC.utils_1.0.0        bit64_4.5.2             rmarkdown_2.28         </span></span>
+<span><span class="co">## [55] XVector_0.44.0          httr_1.4.7              bit_4.5.0.1            </span></span>
+<span><span class="co">## [58] ragg_1.3.0              memoise_2.0.1           evaluate_1.0.0         </span></span>
+<span><span class="co">## [61] knitr_1.48              GenomicRanges_1.56.1    IRanges_2.38.1         </span></span>
+<span><span class="co">## [64] BiocFileCache_2.12.0    rlang_1.1.4             glue_1.8.0             </span></span>
+<span><span class="co">## [67] DBI_1.2.3               BiocManager_1.30.22     BiocGenerics_0.50.0    </span></span>
+<span><span class="co">## [70] rstudioapi_0.16.0       jsonlite_1.8.9          Rbowtie2_2.10.0        </span></span>
+<span><span class="co">## [73] R6_2.5.1                systemfonts_1.0.6       fs_1.6.4               </span></span>
+<span><span class="co">## [76] zlibbioc_1.50.0</span></span></code></pre>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

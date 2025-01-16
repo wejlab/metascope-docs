@@ -22,7 +22,7 @@ that blasted to other species genomes) and genus contaminant score
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,6 @@ that blasted to other species genomes) and genus contaminant score
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-tutorials">Tutorials</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
     <a class="dropdown-item" href="../articles/MetaScope_vignette.html">Introduction to MetaScope</a>
-    <a class="dropdown-item" href="../articles/MetaScopeTutorial.html">Condensed MetaScope Tutorial</a>
     <a class="dropdown-item" href="../articles/docs/SILVA.html">Usage with SILVA 16S Database</a>
     <a class="dropdown-item" href="../articles/docs/Example_Script.html">Example MetaScope Script</a>
   </div>
@@ -81,12 +80,7 @@ that blasted to other species genomes) and genus contaminant score
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">blast_result_metrics</span><span class="op">(</span></span>
-<span>  <span class="va">blast_results_table_path</span>,</span>
-<span>  <span class="va">accessions_path</span>,</span>
-<span>  db <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  NCBI_key <span class="op">=</span> <span class="cn">NULL</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">blast_result_metrics</span><span class="op">(</span><span class="va">blast_results_table_path</span>, <span class="va">accession_path</span>, db <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -95,29 +89,23 @@ that blasted to other species genomes) and genus contaminant score
 <dd><p>path for blast results csv file</p></dd>
 
 
-<dt>accessions_path</dt>
-<dd><p>Directory where accession files for blast are stored.</p></dd>
+<dt>accession_path</dt>
+<dd><p>(character) Filepath to NCBI accessions SQL
+database. See <code>taxonomzr::prepareDatabase()</code>.</p></dd>
 
 
 <dt>db</dt>
-<dd><p>Currently accepts one of <code>c("ncbi", "silva", "other")</code>
-Default is <code>"ncbi"</code>, appropriate for samples aligned against indices
-compiled from NCBI whole genome databases. Alternatively, usage of an
-alternate database (like Greengenes2) should be specified with
-<code>"other"</code>.</p></dd>
-
-
-<dt>NCBI_key</dt>
-<dd><p>(character) NCBI Entrez API key. optional. See
-taxize::use_entrez(). Due to the high number of requests made to NCBI, this
-function will be less prone to errors if you obtain an NCBI key.</p></dd>
+<dd><p>Currently accepts one of <code>c("ncbi", "silva", "other")</code> Default
+is <code>"ncbi"</code>, appropriate for samples aligned against indices compiled
+from NCBI whole genome databases. Alternatively, usage of an alternate
+database (like Greengenes2) should be specified with <code>"other"</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>a dataframe with best_hit, uniqueness_score, species_percentage_hit
+<p>a vector with best_hit, uniqueness_score, species_percentage_hit
   genus_percentage_hit, species_contaminant_score, and
   genus_contaminant_score</p>
     </div>

@@ -20,7 +20,7 @@ single compressed or uncompressed .fasta file."><!-- mathjax --><script src="htt
     
     <a class="navbar-brand me-2" href="../index.html">MetaScope</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,6 @@ single compressed or uncompressed .fasta file."><!-- mathjax --><script src="htt
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-tutorials">Tutorials</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
     <a class="dropdown-item" href="../articles/MetaScope_vignette.html">Introduction to MetaScope</a>
-    <a class="dropdown-item" href="../articles/MetaScopeTutorial.html">Condensed MetaScope Tutorial</a>
     <a class="dropdown-item" href="../articles/docs/SILVA.html">Usage with SILVA 16S Database</a>
     <a class="dropdown-item" href="../articles/docs/Example_Script.html">Example MetaScope Script</a>
   </div>
@@ -86,7 +85,8 @@ single compressed or uncompressed .fasta file.</p>
 <span>  patho_out <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  out_dir <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  caching <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  accession_path <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -134,6 +134,11 @@ Default is <code>FALSE</code>.</p></dd>
 <dt>quiet</dt>
 <dd><p>Turns off most messages. Default is <code>TRUE</code>.</p></dd>
 
+
+<dt>accession_path</dt>
+<dd><p>(character) Filepath to NCBI accessions SQL
+database. See <code>taxonomzr::prepareDatabase()</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -158,18 +163,14 @@ at any level of the table will be acknowledged.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#### Download RefSeq genomes</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Create temporary taxonomizr accession</span></span></span>
+<span class="r-in"><span><span class="va">tmp_accession</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"example_accessions.sql"</span>, package <span class="op">=</span> <span class="st">"MetaScope"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Download all RefSeq reference Bovismacovirus genus genomes</span></span></span>
 <span class="r-in"><span><span class="fu">download_refseq</span><span class="op">(</span><span class="st">'Bovismacovirus'</span>, reference <span class="op">=</span> <span class="cn">FALSE</span>, representative <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
 <span class="r-in"><span>                out_dir <span class="op">=</span> <span class="cn">NULL</span>, compress <span class="op">=</span> <span class="cn">TRUE</span>, patho_out <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>                caching <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No ENTREZ API key provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>  Get one via taxize::use_entrez()</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/290807.1.ood/RtmpsBpExV/file3b921a3fae8bb8/Bovismacovirus.fasta.gz"</span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span>                caching <span class="op">=</span> <span class="cn">TRUE</span>, accession_path <span class="op">=</span> <span class="va">tmp_accession</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/scratch/306243.1.ood/RtmpTOIWT8/file2ea9e067fd12e7/Bovismacovirus.fasta.gz"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

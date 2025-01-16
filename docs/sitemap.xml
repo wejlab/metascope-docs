@@ -28,6 +28,15 @@
     <loc>https://wejlab.github.io/metascope-docs/articles/index.html</loc>
   </url>
   <url>
+    <loc>https://wejlab.github.io/metascope-docs/articles/vignette_docs/Example_Script.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/articles/vignette_docs/MetaBLAST.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/articles/vignette_docs/SILVA.html</loc>
+  </url>
+  <url>
     <loc>https://wejlab.github.io/metascope-docs/authors.html</loc>
   </url>
   <url>
@@ -56,6 +65,9 @@
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/bam_reheader_R.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/blast_reassignment.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/blast_result_metrics.html</loc>
@@ -95,6 +107,9 @@
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/count_matches.html</loc>
+  </url>
+  <url>
+    <loc>https://wejlab.github.io/metascope-docs/reference/download_accessions.html</loc>
   </url>
   <url>
     <loc>https://wejlab.github.io/metascope-docs/reference/download_refseq.html</loc>
