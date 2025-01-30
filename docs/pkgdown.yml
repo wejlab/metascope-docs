@@ -5,8 +5,9 @@ articles:
   Example_Script: vignette_docs/Example_Script.html
   MetaBLAST: vignette_docs/MetaBLAST.html
   MetaScope_vignette: MetaScope_vignette.html
+  publicly_hosted_indices_and_accessions: vignette_docs/publicly_hosted_indices_and_accessions.html
   SILVA: vignette_docs/SILVA.html
-last_built: 2025-01-16T21:55Z
+last_built: 2025-01-30T20:56Z
 urls:
   reference: https://wejlab.github.io/metascope-docs/reference
   article: https://wejlab.github.io/metascope-docs/articles

@@ -42,6 +42,7 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-tutorials">Tutorials</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
     <a class="dropdown-item" href="../articles/MetaScope_vignette.html">Introduction to MetaScope</a>
+    <a class="dropdown-item" href="../articles/publicly_hosted_indices_and_accessions.html">Publicly Hosted Indices</a>
     <a class="dropdown-item" href="../articles/vignette_docs/SILVA.html">Usage with SILVA 16S Database</a>
     <a class="dropdown-item" href="../articles/vignette_docs/Example_Script.html">Example MetaScope Script</a>
   </div>
@@ -98,7 +99,7 @@ of Medicine, Boston,
 MA<br><a class="author_email" href="mailto:#"></a><a href="mailto:wej@bu.edu" class="email">wej@bu.edu</a>
       </address>
                   
-            <h4 data-toc-skip class="date">January 16, 2025</h4>
+            <h4 data-toc-skip class="date">January 30, 2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/wejlab/MetaScope/blob/HEAD/vignettes/MetaScope_vignette.Rmd" class="external-link"><code>vignettes/MetaScope_vignette.Rmd</code></a></small>
       <div class="d-none name"><code>MetaScope_vignette.Rmd</code></div>
@@ -338,20 +339,18 @@ These genomes together will act as our target genome library.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">all_species</span>, <span class="va">download_refseq</span>, </span>
 <span>       reference <span class="op">=</span> <span class="cn">FALSE</span>, representative <span class="op">=</span> <span class="cn">FALSE</span>, compress <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>       out_dir <span class="op">=</span> <span class="va">target_ref_temp</span>, caching <span class="op">=</span> <span class="cn">TRUE</span>, accession_path <span class="op">=</span> <span class="va">tmp_accession</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Error in get(paste0(generic, ".", class), envir = get_method_env()) : </span></span>
-<span><span class="co">##   object 'type_sum.accel' not found</span></span></code></pre>
 <pre><code><span><span class="co">##                                                                       Staphylococcus aureus subsp. aureus Mu50 </span></span>
-<span><span class="co">##        "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_subsp._aureus_Mu50.fasta.gz" </span></span>
+<span><span class="co">##        "/scratch/310329.1.ood/RtmpycQKy3/file3f5b6344dc863e/Staphylococcus_aureus_subsp._aureus_Mu50.fasta.gz" </span></span>
 <span><span class="co">##                                                                        Staphylococcus aureus subsp. aureus Mu3 </span></span>
-<span><span class="co">##         "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz" </span></span>
+<span><span class="co">##         "/scratch/310329.1.ood/RtmpycQKy3/file3f5b6344dc863e/Staphylococcus_aureus_subsp._aureus_Mu3.fasta.gz" </span></span>
 <span><span class="co">##                                                                Staphylococcus aureus subsp. aureus str. Newman </span></span>
-<span><span class="co">## "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_subsp._aureus_str._Newman.fasta.gz" </span></span>
+<span><span class="co">## "/scratch/310329.1.ood/RtmpycQKy3/file3f5b6344dc863e/Staphylococcus_aureus_subsp._aureus_str._Newman.fasta.gz" </span></span>
 <span><span class="co">##                                                                       Staphylococcus aureus subsp. aureus N315 </span></span>
-<span><span class="co">##        "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_subsp._aureus_N315.fasta.gz" </span></span>
+<span><span class="co">##        "/scratch/310329.1.ood/RtmpycQKy3/file3f5b6344dc863e/Staphylococcus_aureus_subsp._aureus_N315.fasta.gz" </span></span>
 <span><span class="co">##                                                                                    Staphylococcus aureus RF122 </span></span>
-<span><span class="co">##                     "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
+<span><span class="co">##                     "/scratch/310329.1.ood/RtmpycQKy3/file3f5b6344dc863e/Staphylococcus_aureus_RF122.fasta.gz" </span></span>
 <span><span class="co">##                                                                      Staphylococcus aureus subsp. aureus ST398 </span></span>
-<span><span class="co">##       "/scratch/306263.1.ood/RtmpNeGtfj/file2693e63102e403/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz"</span></span></code></pre>
+<span><span class="co">##       "/scratch/310329.1.ood/RtmpycQKy3/file3f5b6344dc863e/Staphylococcus_aureus_subsp._aureus_ST398.fasta.gz"</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="downloading-filter-genomes">Downloading filter genomes<a class="anchor" aria-label="anchor" href="#downloading-filter-genomes"></a>
@@ -365,7 +364,7 @@ act as our filter library.</p>
 representative and reference = FALSE, several sequences will be
 downloaded in addition to the main genome.</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">filter_ref_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">filter_ref_temp</span><span class="op">)</span></span>
 <span></span>
@@ -375,7 +374,7 @@ downloaded in addition to the main genome.</li>
 <span>  compress <span class="op">=</span> <span class="cn">TRUE</span>, out_dir <span class="op">=</span> <span class="va">filter_ref_temp</span>,</span>
 <span>  caching <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  accession_path <span class="op">=</span> <span class="va">tmp_accession</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "/scratch/306263.1.ood/RtmpNeGtfj/file2693e610c4ed78/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/310329.1.ood/RtmpycQKy3/file3f5b637a9f4e37/Staphylococcus_epidermidis_RP62A.fasta.gz"</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="creating-indices-using-a-given-aligner">Creating indices using a given aligner<a class="anchor" aria-label="anchor" href="#creating-indices-using-a-given-aligner"></a>
@@ -395,7 +394,7 @@ create either small (.bt2) or large (.bt2l) Bowtie2 indexes.</p>
 step have been combined and renamed to target.fasta and filter.fasta
 respectively for convenience. These are the files from which the Bowtie2
 indexes will be made from.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create temp directory to store the Bowtie2 indices</span></span>
 <span><span class="va">index_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">index_temp</span><span class="op">)</span></span>
@@ -409,8 +408,8 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span></code></pre>
 <pre><code><span><span class="co">## Index building complete</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/306263.1.ood/RtmpNeGtfj/file2693e6558cbe67"</span></span></code></pre>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<pre><code><span><span class="co">## [1] "/scratch/310329.1.ood/RtmpycQKy3/file3f5b633303cc3b"</span></span></code></pre>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create filter index</span></span>
 <span><span class="fu"><a href="../reference/mk_bowtie_index.html">mk_bowtie_index</a></span><span class="op">(</span></span>
 <span>  ref_dir <span class="op">=</span> <span class="va">filter_ref_temp</span>,</span>
@@ -420,7 +419,7 @@ indexes will be made from.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## arguments 'show.output.on.console', 'minimized' and 'invisible' are for Windows only</span></span>
 <span><span class="co">## Index building complete</span></span></code></pre>
-<pre><code><span><span class="co">## [1] "/scratch/306263.1.ood/RtmpNeGtfj/file2693e6558cbe67"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/scratch/310329.1.ood/RtmpycQKy3/file3f5b633303cc3b"</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -461,7 +460,7 @@ alignment parameters, but users can provide their own Bowtie 2 alignment
 settings if desired.</p>
 <p>We will now align the sample reads (reads.fastq) to the target
 reference genomes using the Bowtie 2 indexes that we just built.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a temp directory to store output bam file</span></span>
 <span><span class="va">output_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">output_temp</span><span class="op">)</span></span>
@@ -499,7 +498,7 @@ where the indexes are stored, and the names of the filter indexes to
 align against, to produce a sorted BAM file with any reads that match
 the filter libraries removed. We will then use this final BAM file
 downstream for further analysis.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">final_map</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="../reference/filter_host_bowtie.html">filter_host_bowtie</a></span><span class="op">(</span></span>
 <span>    reads_bam <span class="op">=</span> <span class="va">target_map</span>,</span>
@@ -535,7 +534,7 @@ alignments to the other <em>S. aureus</em> strains which are incorrect.
 If we were to stop the analysis at this point, we could potentially be
 lead to believe that our sample has increased microbial diversity, when
 it actually does not.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bamFile</span> <span class="op">&lt;-</span> <span class="fu">Rsamtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rsamtools/man/BamFile-class.html" class="external-link">BamFile</a></span><span class="op">(</span><span class="va">final_map</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">param</span> <span class="op">&lt;-</span></span>
@@ -587,7 +586,7 @@ maps to multiple different genomes. We can see that the majority of our
 secondary alignments are to the other Staphylococcus aureus strains,
 which makes sense considering that the majority of the primary
 alignments were to the correct Staphylococcus aureus RF122 strain.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bamFile</span> <span class="op">&lt;-</span> <span class="fu">Rsamtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rsamtools/man/BamFile-class.html" class="external-link">BamFile</a></span><span class="op">(</span><span class="va">final_map</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">param</span> <span class="op">&lt;-</span></span>
@@ -652,7 +651,7 @@ taxonomy and genome names, reduces the mapping ambiguity using a mixture
 model, and outputs a .csv file with the results. Currently, it assumes
 that the genome library/.bam files use NCBI accession names for
 reference names.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metascope_id.html">metascope_id</a></span><span class="op">(</span></span>
 <span>  <span class="va">final_map</span>,</span>
 <span>  input_type <span class="op">=</span> <span class="st">"bam"</span>,</span>
@@ -762,7 +761,7 @@ the CSV file produced by the <code><a href="../reference/metascope_id.html">meta
 function.</strong></p>
 <p>We will now look at the read reassignment results reported in the
 output CSV file.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">relevant_col</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">dirname</a></span><span class="op">(</span><span class="va">final_map</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"bowtie_target.metascope_id.csv"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fl">2</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
@@ -809,7 +808,7 @@ aureus;Staphylococcus aureus subsp. aureus str. Newman</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="st">".bowtie2.cerr.txt"</span><span class="op">)</span></span></code></pre></div>
 <p>We can see that the read reassignment function has reassigned the
 majority of the ambiguous alignments back to the <em>Staphylococcus
@@ -818,7 +817,7 @@ aureus</em> RF122 strain, the correct strain of origin.</p>
 <div class="section level2">
 <h2 id="session-info">Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
 </h2>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## R version 4.4.0 (2024-04-24)</span></span>
 <span><span class="co">## Platform: x86_64-pc-linux-gnu</span></span>
@@ -856,13 +855,13 @@ aureus</em> RF122 strain, the correct strain of origin.</p>
 <span><span class="co">## [25] stringr_1.5.1           Rsamtools_2.20.0        textshaping_0.3.7      </span></span>
 <span><span class="co">## [28] Biostrings_2.72.1       codetools_0.2-20        GenomeInfoDb_1.40.1    </span></span>
 <span><span class="co">## [31] htmltools_0.5.8.1       sass_0.4.9              yaml_2.3.10            </span></span>
-<span><span class="co">## [34] pillar_1.10.0           pkgdown_2.0.9           crayon_1.5.3           </span></span>
+<span><span class="co">## [34] pillar_1.10.1           pkgdown_2.0.9           crayon_1.5.3           </span></span>
 <span><span class="co">## [37] jquerylib_0.1.4         BiocParallel_1.38.0     cachem_1.1.0           </span></span>
-<span><span class="co">## [40] taxonomizr_0.10.6       tidyselect_1.2.1        digest_0.6.37          </span></span>
+<span><span class="co">## [40] taxonomizr_0.10.7       tidyselect_1.2.1        digest_0.6.37          </span></span>
 <span><span class="co">## [43] stringi_1.8.4           dplyr_1.1.4             purrr_1.0.2            </span></span>
 <span><span class="co">## [46] bookdown_0.39           grid_4.4.0              fastmap_1.2.0          </span></span>
 <span><span class="co">## [49] cli_3.6.3               withr_3.0.2             filelock_1.0.3         </span></span>
-<span><span class="co">## [52] UCSC.utils_1.0.0        bit64_4.5.2             rmarkdown_2.28         </span></span>
+<span><span class="co">## [52] UCSC.utils_1.0.0        bit64_4.6.0-1           rmarkdown_2.28         </span></span>
 <span><span class="co">## [55] XVector_0.44.0          httr_1.4.7              bit_4.5.0.1            </span></span>
 <span><span class="co">## [58] ragg_1.3.0              memoise_2.0.1           evaluate_1.0.0         </span></span>
 <span><span class="co">## [61] knitr_1.48              GenomicRanges_1.56.1    IRanges_2.38.1         </span></span>
