@@ -1,159 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/404.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/articles/MetaScope_vignette.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/articles/vignette_docs/Example_Script.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/articles/vignette_docs/MetaBLAST.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/articles/vignette_docs/SILVA.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/articles/vignette_docs/publicly_hosted_indices_and_accessions.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/index.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/MetaScope-package.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/add_in_taxa.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/add_in_taxa_ncbi.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/align_details.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/align_target.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/align_target_bowtie.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/bam_reheader_R.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/blast_reassignment.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/blast_result_metrics.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/blastn_results.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/blastn_single_result.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/bt2_16S_params.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/bt2_missing_params.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/bt2_regular_params.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/check_blastn_exists.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/check_samtools_exists.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/combined_header.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/convert_animalcules.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/convert_animalcules_patho.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/convert_animalcules_silva.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/count_matches.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/download_accessions.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/download_refseq.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/extract_reads.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/filter_host.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/filter_host_bowtie.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/filter_unmapped_reads.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/get_children.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/get_multi_seqs.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/get_seqs.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/locations.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/merge_bam_files.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/meta_demultiplex.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/metascope_blast.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/metascope_id.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/mk_bowtie_index.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/mk_subread_index.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/remove_matches.html</loc>
-  </url>
-  <url>
-    <loc>https://wejlab.github.io/metascope-docs/reference/taxid_to_name.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://wejlab.github.io/metascope-docs/404.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/LICENSE.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/articles/MetaScope_vignette.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/articles/index.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/articles/vignette_docs/Example_Script.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/articles/vignette_docs/MetaBLAST.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/articles/vignette_docs/SILVA.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/articles/vignette_docs/publicly_hosted_indices_and_accessions.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/authors.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/index.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/news/index.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/MetaScope-package.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/add_in_taxa.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/add_in_taxa_ncbi.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/align_details.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/align_target.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/align_target_bowtie.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/bam_reheader_R.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/blast_reassignment.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/blast_result_metrics.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/blastn_results.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/blastn_single_result.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/bt2_16S_params.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/bt2_missing_params.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/bt2_regular_params.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/check_blastn_exists.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/check_samtools_exists.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/combined_header.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/convert_animalcules.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/convert_animalcules_patho.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/convert_animalcules_silva.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/count_matches.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/download_accessions.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/download_refseq.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/extract_reads.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/filter_host.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/filter_host_bowtie.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/filter_unmapped_reads.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/get_children.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/get_multi_seqs.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/get_seqs.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/index.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/locations.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/merge_bam_files.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/meta_demultiplex.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/metascope_blast.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/metascope_id.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/mk_bowtie_index.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/mk_subread_index.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/remove_matches.html</loc></url>
+<url><loc>https://wejlab.github.io/metascope-docs/reference/taxid_to_name.html</loc></url>
 </urlset>
+
